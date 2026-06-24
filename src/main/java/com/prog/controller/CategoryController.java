@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prog.dto.CategoryDto;
-import com.prog.dto.CategoryReponse;
+import com.prog.dto.CategoryResponse;
 import com.prog.entity.Category;
 import com.prog.service.CategoryService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/category")
@@ -28,7 +30,7 @@ public class CategoryController {
 	private CategoryService categoryService;
 
 	@PostMapping("/save")
-	public ResponseEntity<?> saveCategory(@RequestBody CategoryDto categoryDto) {
+	public ResponseEntity<?> saveCategory( @RequestBody CategoryDto categoryDto) {
 
 		Boolean saveCategory = categoryService.saveCategory(categoryDto);
 		if (saveCategory) {
@@ -53,7 +55,7 @@ public class CategoryController {
 	@GetMapping("/active")
 	public ResponseEntity<?> getActiveCategory() {
 
-		List<CategoryReponse> allCategory = categoryService.getActiveCategory();
+		List<CategoryResponse> allCategory = categoryService.getActiveCategory();
 		if (CollectionUtils.isEmpty(allCategory)) {
 			return ResponseEntity.noContent().build();
 		} else {

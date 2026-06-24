@@ -8,13 +8,15 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 
 import com.prog.dto.CategoryDto;
-import com.prog.dto.CategoryReponse;
+import com.prog.dto.CategoryResponse;
 import com.prog.entity.Category;
 import com.prog.exception.ResourceNotFoundException;
 import com.prog.repository.CategoryRepository;
 import com.prog.service.CategoryService;
+import com.prog.util.Validation;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -25,13 +27,14 @@ public class CategoryServiceImpl implements CategoryService {
 	@Autowired
 	private ModelMapper mapper;
 
+	@Autowired
+	private Validation validation;
+
 	@Override
 	public Boolean saveCategory(CategoryDto categoryDto) {
 
-//		Category category = new Category();
-//		category.setName(categoryDto.getName());
-//		category.setDescription(categoryDto.getDescription());
-//		category.setIsActive(categoryDto.getIsActive());
+		// Validation Checking
+		validation.categoryValidation(categoryDto);
 
 		Category category = mapper.map(categoryDto, Category.class);
 
@@ -73,10 +76,10 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public List<CategoryReponse> getActiveCategory() {
+	public List<CategoryResponse> getActiveCategory() {
 
 		List<Category> categories = categoryRepo.findByIsActiveTrueAndIsDeletedFalse();
-		List<CategoryReponse> categoryList = categories.stream().map(cat -> mapper.map(cat, CategoryReponse.class))
+		List<CategoryResponse> categoryList = categories.stream().map(cat -> mapper.map(cat, CategoryResponse.class))
 				.toList();
 		return categoryList;
 	}

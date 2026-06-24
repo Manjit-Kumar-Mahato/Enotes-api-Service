@@ -3,7 +3,7 @@ package com.prog.service;
 import java.util.List;
 
 import com.prog.dto.CategoryDto;
-import com.prog.dto.CategoryReponse;
+import com.prog.dto.CategoryResponse;
 
 public interface CategoryService {
 
@@ -11,7 +11,7 @@ public interface CategoryService {
 	
 	public List<CategoryDto> getAllCategory();
 
-	public List<CategoryReponse> getActiveCategory();
+	public List<CategoryResponse> getActiveCategory();
 
 	public CategoryDto getCategoryById(Integer id) throws Exception;
 

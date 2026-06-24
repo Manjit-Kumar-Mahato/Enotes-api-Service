@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoryReponse {
+public class CategoryResponse {
 
 	private Integer id;
 
