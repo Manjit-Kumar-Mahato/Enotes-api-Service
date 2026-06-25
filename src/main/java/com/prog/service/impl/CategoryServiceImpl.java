@@ -13,6 +13,7 @@ import org.springframework.util.StringUtils;
 import com.prog.dto.CategoryDto;
 import com.prog.dto.CategoryResponse;
 import com.prog.entity.Category;
+import com.prog.exception.ExistDataException;
 import com.prog.exception.ResourceNotFoundException;
 import com.prog.repository.CategoryRepository;
 import com.prog.service.CategoryService;
@@ -36,11 +37,17 @@ public class CategoryServiceImpl implements CategoryService {
 		// Validation Checking
 		validation.categoryValidation(categoryDto);
 
+		// check category exist or not
+		Boolean exist = categoryRepo.existsByName(categoryDto.getName().trim());
+		if (exist) { // throw error
+			throw new ExistDataException("Category already exist");
+		}
+
 		Category category = mapper.map(categoryDto, Category.class);
 
 		if (ObjectUtils.isEmpty(category.getId())) {
 			category.setIsDeleted(false);
-			//category.setCreatedBy(1);
+			// category.setCreatedBy(1);
 			category.setCreatedOn(new Date());
 		} else {
 			updateCategory(category);
@@ -61,8 +68,8 @@ public class CategoryServiceImpl implements CategoryService {
 			category.setCreatedOn(existCategory.getCreatedOn());
 			category.setIsDeleted(existCategory.getIsDeleted());
 
-			//category.setUpdatedBy(1);
-			//category.setUpdatedOn(new Date());
+			// category.setUpdatedBy(1);
+			// category.setUpdatedOn(new Date());
 		}
 	}
 
