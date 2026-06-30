@@ -8,16 +8,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.prog.dto.NotesDto;
+import com.prog.dto.NotesResponse;
 import com.prog.entity.FileDetails;
 import com.prog.service.NotesService;
 import com.prog.util.CommonUtil;
@@ -30,16 +31,16 @@ public class NotesController {
 	private NotesService notesService;
 
 	@PostMapping("/")
-	public ResponseEntity<?> saveNotes(@RequestParam String notes, 
-			@RequestParam(required = false) MultipartFile file) throws Exception {
+	public ResponseEntity<?> saveNotes(@RequestParam String notes, @RequestParam(required = false) MultipartFile file)
+			throws Exception {
 
-		Boolean saveNotes = notesService.saveNotes(notes,file);
+		Boolean saveNotes = notesService.saveNotes(notes, file);
 		if (saveNotes) {
 			return CommonUtil.createBuildResponseMessage("Notes saved success", HttpStatus.CREATED);
 		}
 		return CommonUtil.createErrorResponseMessage("Notes not saved", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-	
+
 	@GetMapping("/download/{id}")
 	public ResponseEntity<?> downloadFile(@PathVariable Integer id) throws Exception {
 		FileDetails fileDetails = notesService.getFileDetails(id);
@@ -60,6 +61,49 @@ public class NotesController {
 			return ResponseEntity.noContent().build();
 		}
 		return CommonUtil.createBuildResponse(notes, HttpStatus.OK);
+	}
+
+	@GetMapping("/user-notes")
+	public ResponseEntity<?> getAllNotesByUser(@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
+			@RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize) {
+		Integer userId = 2;
+		NotesResponse notes = notesService.getAllNotesByUser(userId, pageNo, pageSize);
+		return CommonUtil.createBuildResponse(notes, HttpStatus.OK);
+	}
+
+	@GetMapping("/delete/{id}")
+	public ResponseEntity<?> deleteNotes(@PathVariable Integer id) throws Exception {
+		notesService.softDeleteNotes(id);
+		return CommonUtil.createBuildResponseMessage("Delete Success", HttpStatus.OK);
+	}
+
+	@GetMapping("/restore/{id}")
+	public ResponseEntity<?> restoreNotes(@PathVariable Integer id) throws Exception {
+		notesService.restoreNotes(id);
+		return CommonUtil.createBuildResponseMessage("Notes restore Success", HttpStatus.OK);
+	}
+
+	@GetMapping("/recycle-bin")
+	public ResponseEntity<?> getUserRecycleBinNotes() throws Exception {
+		Integer userId = 2;
+		List<NotesDto> notes = notesService.getUserRecycleBinNotes(userId);
+		if (CollectionUtils.isEmpty(notes)) {
+			return CommonUtil.createBuildResponseMessage("Notes not avaible in Recycle Bin", HttpStatus.OK);
+		}
+		return CommonUtil.createBuildResponse(notes, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<?> hardDeleteNotes(@PathVariable Integer id) throws Exception {
+		notesService.hardDeleteNotes(id);
+		return CommonUtil.createBuildResponseMessage("Delete Success", HttpStatus.OK);
+	}
+
+	@DeleteMapping("/delete")
+	public ResponseEntity<?> emptyRecyleBin() throws Exception {
+		int userId=2;
+		notesService.emptyRecycleBin(userId);
+		return CommonUtil.createBuildResponseMessage("Delete Success", HttpStatus.OK);
 	}
 
 }
