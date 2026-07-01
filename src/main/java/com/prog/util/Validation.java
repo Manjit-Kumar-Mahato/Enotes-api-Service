@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
 import com.prog.dto.CategoryDto;
+import com.prog.dto.TodoDto;
+import com.prog.dto.TodoDto.StatusDto;
+import com.prog.enums.TodoStatus;
+import com.prog.exception.ResourceNotFoundException;
 import com.prog.exception.ValidationException;
 
 @Component
@@ -52,6 +56,19 @@ public class Validation {
 			throw new ValidationException(error);
 		}
 
+	}
+	
+	public void todoValidation(TodoDto todo) throws Exception {
+		StatusDto reqStatus = todo.getStatus();
+		Boolean statusFound = false;
+		for(TodoStatus st: TodoStatus.values()) {
+			if(st.getId().equals(reqStatus.getId())) {
+				statusFound = true;
+			}
+		}
+		if(!statusFound) {
+			throw new ResourceNotFoundException("Invalid Status");
+		}
 	}
 
 }
