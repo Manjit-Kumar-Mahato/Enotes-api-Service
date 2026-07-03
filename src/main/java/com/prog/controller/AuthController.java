@@ -12,6 +12,9 @@ import com.prog.dto.UserDto;
 import com.prog.service.UserService;
 import com.prog.util.CommonUtil;
 
+import jakarta.servlet.http.HttpServletRequest;
+
+
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthController {
@@ -20,8 +23,9 @@ public class AuthController {
 	private UserService userService;
 
 	@PostMapping("/")
-	public ResponseEntity<?> registerUser(@RequestBody UserDto userDto) throws Exception {
-		Boolean register = userService.register(userDto);
+	public ResponseEntity<?> registerUser(@RequestBody UserDto userDto , HttpServletRequest request) throws Exception {
+		String url = CommonUtil.getUrl(request);
+		Boolean register = userService.register(userDto,url);
 		if (register) {
 			return CommonUtil.createBuildResponseMessage("Register success", HttpStatus.CREATED);
 		}
