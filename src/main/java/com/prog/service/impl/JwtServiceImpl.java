@@ -46,7 +46,7 @@ public class JwtServiceImpl implements JwtService{
 		String token = Jwts.builder().claims().add(claims)
 				.subject(user.getEmail())
 				.issuedAt(new Date(System.currentTimeMillis()))
-				.expiration(new Date(System.currentTimeMillis() +  5*60 * 1000))
+				.expiration(new Date(System.currentTimeMillis() +  50*60*1000))
 				.and()
 				.signWith(getKey())
 				.compact();
