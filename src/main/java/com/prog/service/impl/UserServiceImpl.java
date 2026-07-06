@@ -23,6 +23,7 @@ import com.prog.entity.Role;
 import com.prog.entity.User;
 import com.prog.repository.RoleRepository;
 import com.prog.repository.UserRepository;
+import com.prog.service.JwtService;
 import com.prog.service.UserService;
 import com.prog.util.Validation;
 
@@ -49,6 +50,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private JwtService jwtService;
 
 	@Override
 	public Boolean register(UserDto userDto, String url) throws Exception {
@@ -104,7 +108,7 @@ public class UserServiceImpl implements UserService {
 			CustomUserDetails customUserDetails= 
 					(CustomUserDetails)authenticate.getPrincipal();
 			
-			String token="safdghhfdssaghnggsdsgfvswaefqwaef";
+			String token = jwtService.generateToken(customUserDetails.getUser());;
 			
 			LoginResponse loginResponse=LoginResponse.builder()
 					.user(mapper.map(customUserDetails.getUser(), UserDto.class))
