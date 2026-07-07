@@ -1,13 +1,9 @@
 package com.prog.service;
 
-import com.prog.dto.LoginRequest;
-import com.prog.dto.LoginResponse;
-import com.prog.dto.UserDto;
+import com.prog.dto.PasswordChngRequest;
 
 public interface UserService {
 
-	public Boolean register(UserDto userDto, String url) throws Exception;
+	public void changePassword(PasswordChngRequest passwordRequest);
 
-	public LoginResponse login(LoginRequest loginRequest);
-	
 }
