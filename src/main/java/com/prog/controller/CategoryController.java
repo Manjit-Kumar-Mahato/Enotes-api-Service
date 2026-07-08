@@ -60,7 +60,7 @@ public class CategoryController {
 	}
 
 	@GetMapping("/active")
-	@PreAuthorize("hasRole('USER','ADMIN')")
+	@PreAuthorize("hasAnyRole('USER','ADMIN')")
 	public ResponseEntity<?> getActiveCategory() {
 
 		List<CategoryResponse> allCategory = categoryService.getActiveCategory();

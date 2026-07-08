@@ -11,39 +11,37 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.prog.dto.LoginRequest;
 import com.prog.dto.LoginResponse;
-import com.prog.dto.UserDto;
-import com.prog.service.UserService;
+import com.prog.dto.UserRequest;
+import com.prog.service.AuthService;
 import com.prog.util.CommonUtil;
 
 import jakarta.servlet.http.HttpServletRequest;
-
 
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthController {
 
 	@Autowired
-	private UserService userService;
+	private AuthService authService;
 
 	@PostMapping("/")
-	public ResponseEntity<?> registerUser(@RequestBody UserDto userDto , HttpServletRequest request) throws Exception {
+	public ResponseEntity<?> registerUser(@RequestBody UserRequest userDto, HttpServletRequest request) throws Exception {
 		String url = CommonUtil.getUrl(request);
-		Boolean register = userService.register(userDto,url);
+		Boolean register = authService.register(userDto, url);
 		if (register) {
 			return CommonUtil.createBuildResponseMessage("Register success", HttpStatus.CREATED);
 		}
 		return CommonUtil.createErrorResponseMessage("Register failed", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-	
+
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) throws Exception {
 
-		LoginResponse loginResponse = userService.login(loginRequest);
+		LoginResponse loginResponse = authService.login(loginRequest);
 		if (ObjectUtils.isEmpty(loginResponse)) {
 			return CommonUtil.createErrorResponseMessage("invalid credential", HttpStatus.BAD_REQUEST);
 		}
 		return CommonUtil.createBuildResponse(loginResponse,HttpStatus.OK);
 	}
-
 
 }

@@ -13,8 +13,7 @@ import org.springframework.util.StringUtils;
 import com.prog.dto.CategoryDto;
 import com.prog.dto.TodoDto;
 import com.prog.dto.TodoDto.StatusDto;
-import com.prog.dto.UserDto;
-import com.prog.entity.Role;
+import com.prog.dto.UserRequest;
 import com.prog.enums.TodoStatus;
 import com.prog.exception.ExistDataException;
 import com.prog.exception.ResourceNotFoundException;
@@ -27,7 +26,7 @@ public class Validation {
 
 	@Autowired
 	private RoleRepository roleRepo;
-	
+
 	@Autowired
 	private UserRepository userRepo;
 
@@ -66,7 +65,6 @@ public class Validation {
 				}
 			}
 		}
-
 		if (!error.isEmpty()) {
 			throw new ValidationException(error);
 		}
@@ -86,7 +84,7 @@ public class Validation {
 		}
 	}
 
-	public void userValidation(UserDto userDto) {
+	public void userValidation(UserRequest userDto) {
 
 		if (!StringUtils.hasText(userDto.getFirstName())) {
 			throw new IllegalArgumentException("first name is invalid");
@@ -98,22 +96,22 @@ public class Validation {
 
 		if (!StringUtils.hasText(userDto.getEmail()) || !userDto.getEmail().matches(Constants.EMAIL_REGEX)) {
 			throw new IllegalArgumentException("email is invalid");
-		}else {
+		} else {
+			// validate email exist
 			Boolean existEmail = userRepo.existsByEmail(userDto.getEmail());
-			if(existEmail) {
+			if (existEmail) {
 				throw new ExistDataException("Email already exist");
 			}
- 		}
+		}
 
 		if (!StringUtils.hasText(userDto.getMobNo()) || !userDto.getMobNo().matches(Constants.MOBNO_REGEX)) {
 			throw new IllegalArgumentException("mobno is invalid");
 		}
-		
-		if (!StringUtils.hasText(userDto.getPassword())
-		        || !userDto.getPassword().matches(Constants.PASSWORD_REGEX)) {
 
-		    throw new IllegalArgumentException(
-		            "Password must be 8-20 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.");
+		if (!StringUtils.hasText(userDto.getPassword()) || !userDto.getPassword().matches(Constants.PASSWORD_REGEX)) {
+
+			throw new IllegalArgumentException(
+					"Password must be 8-20 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.");
 		}
 
 		if (CollectionUtils.isEmpty(userDto.getRoles())) {
@@ -128,9 +126,7 @@ public class Validation {
 			if (!CollectionUtils.isEmpty(invalidReqRoleids)) {
 				throw new IllegalArgumentException("role is invalid" + invalidReqRoleids);
 			}
-
 		}
-		
 
 	}
 

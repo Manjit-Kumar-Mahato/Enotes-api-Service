@@ -68,6 +68,15 @@ public class NotesController {
 		return CommonUtil.createBuildResponse(notes, HttpStatus.OK);
 	}
 
+	@GetMapping("/search")
+	@PreAuthorize("hasRole('USER')")
+	public ResponseEntity<?> searchNotes(@RequestParam(name = "key", defaultValue = "") String key,
+			@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
+			@RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize) {
+		NotesResponse notes = notesService.getNotesByUserSearch(pageNo, pageSize, key);
+		return CommonUtil.createBuildResponse(notes, HttpStatus.OK);
+	}
+
 	@GetMapping("/user-notes")
 	@PreAuthorize("hasAnyRole('USER')")
 	public ResponseEntity<?> getAllNotesByUser(@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
@@ -112,18 +121,18 @@ public class NotesController {
 	@DeleteMapping("/delete")
 	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<?> emptyRecyleBin() throws Exception {
-		int userId=2;
+		int userId = 2;
 		notesService.emptyRecycleBin(userId);
 		return CommonUtil.createBuildResponseMessage("Delete Success", HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/fav/{noteId}")
 	@PreAuthorize("hasRole('USER')")
-	public ResponseEntity<?> favoriteNote(@PathVariable Integer noteId) throws Exception{
+	public ResponseEntity<?> favoriteNote(@PathVariable Integer noteId) throws Exception {
 		notesService.favoriteNotes(noteId);
 		return CommonUtil.createBuildResponseMessage("Notes added to Favourite", HttpStatus.CREATED);
 	}
-	
+
 	@DeleteMapping("/un-fav/{favNotId}")
 	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<?> unFavoriteNote(@PathVariable Integer favNotId) throws Exception {
@@ -141,7 +150,7 @@ public class NotesController {
 		}
 		return CommonUtil.createBuildResponse(userFavoriteNotes, HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/copy/{id}")
 	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<?> copyNotes(@PathVariable Integer id) throws Exception {
@@ -151,8 +160,5 @@ public class NotesController {
 		}
 		return CommonUtil.createErrorResponseMessage("Copy failed ! Try Again", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-
-	
-	
 
 }
