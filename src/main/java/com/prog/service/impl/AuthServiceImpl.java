@@ -27,6 +27,9 @@ import com.prog.service.JwtService;
 import com.prog.service.AuthService;
 import com.prog.util.Validation;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class AuthServiceImpl implements AuthService {
 
@@ -47,47 +50,48 @@ public class AuthServiceImpl implements AuthService {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
-	
+
 	@Autowired
 	private JwtService jwtService;
 
 	@Override
 	public Boolean register(UserRequest userDto, String url) throws Exception {
-
+		log.info("AuthServiceImpl : register() : Registering user with email={}", userDto.getEmail());
 		validation.userValidation(userDto);
 		User user = mapper.map(userDto, User.class);
-
 		setRole(userDto, user);
-
 		AccountStatus status = AccountStatus.builder().isActive(false).verificationCode(UUID.randomUUID().toString())
 				.build();
 		user.setStatus(status);
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		User saveUser = userRepo.save(user);
-		if (!ObjectUtils.isEmpty(saveUser)) {
-			// send email
-			emailSendforRegister(saveUser, url);
-			return true;
+		if (ObjectUtils.isEmpty(saveUser)) {
+			log.error("AuthServiceImpl : register() : Failed to save user. Email={}", userDto.getEmail());
+			return false;
 		}
-		return false;
+		log.info("AuthServiceImpl : register() : User registered successfully. UserId={}", saveUser.getId());
+		// send email
+		emailSendForRegister(saveUser, url);
+		log.info("AuthServiceImpl : register() : Verification email sent successfully. Email={}", saveUser.getEmail());
+		return true;
 	}
 
-	private void emailSendforRegister(User saveUser, String url) throws Exception {
-
+	private void emailSendForRegister(User saveUser, String url) throws Exception {
+		log.info("AuthServiceImpl : emailSendForRegister() : Preparing verification email. UserId={}",
+				saveUser.getId());
 		String message = "Hi,<b>[[username]]</b> " + "<br> Your account register sucessfully.<br>"
 				+ "<br> Click the below link verify & Active your account <br>"
 				+ "<a href='[[url]]'>Click Here</a> <br><br>" + "Thanks,<br>Enotes.com";
-
 		message = message.replace("[[username]]", saveUser.getFirstName());
 		message = message.replace("[[url]]", url + "/api/v1/home/verify?uid=" + saveUser.getId() + "&&code="
 				+ saveUser.getStatus().getVerificationCode());
-
 		EmailRequest emailRequest = EmailRequest.builder().to(saveUser.getEmail())
 				.title("Account Creating Confirmation").subject("Account Created Success").message(message).build();
 		emailService.sendEmail(emailRequest);
+		log.info("AuthServiceImpl : emailSendForRegister() : Verification email sent. Email={}", saveUser.getEmail());
 	}
 
 	private void setRole(UserRequest userDto, User user) {
@@ -98,24 +102,17 @@ public class AuthServiceImpl implements AuthService {
 
 	@Override
 	public LoginResponse login(LoginRequest loginRequest) {
-
+		log.info("AuthServiceImpl : login() : Login request received. Email={}", loginRequest.getEmail());
 		Authentication authenticate = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
-
-		if(authenticate.isAuthenticated())
-		{
-			CustomUserDetails customUserDetails= 
-					(CustomUserDetails)authenticate.getPrincipal();
-			
-			String token=jwtService.generateToken(customUserDetails.getUser());
-			
-			LoginResponse loginResponse=LoginResponse.builder()
-					.user(mapper.map(customUserDetails.getUser(), UserResponse.class))
-					.token(token)
-					.build();
-			return loginResponse;
+		if (authenticate.isAuthenticated()) {
+			CustomUserDetails customUserDetails = (CustomUserDetails) authenticate.getPrincipal();
+			String token = jwtService.generateToken(customUserDetails.getUser());
+			log.info("AuthServiceImpl : login() : Login successful. UserId={}", customUserDetails.getUser().getId());
+			return LoginResponse.builder().user(mapper.map(customUserDetails.getUser(), UserResponse.class))
+					.token(token).build();
 		}
-		
+		log.warn("AuthServiceImpl : login() : Authentication failed. Email={}", loginRequest.getEmail());
 		return null;
 	}
 

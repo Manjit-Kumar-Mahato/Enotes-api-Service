@@ -8,7 +8,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 
 import com.prog.dto.CategoryDto;
 import com.prog.dto.CategoryResponse;
@@ -19,6 +18,9 @@ import com.prog.repository.CategoryRepository;
 import com.prog.service.CategoryService;
 import com.prog.util.Validation;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
@@ -34,12 +36,16 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public Boolean saveCategory(CategoryDto categoryDto) {
 
-		// Validation Checking
+		log.info("CategoryServiceImpl : saveCategory() : Processing category '{}'",
+				categoryDto.getName());
+
 		validation.categoryValidation(categoryDto);
 
-		// check category exist or not
 		Boolean exist = categoryRepo.existsByName(categoryDto.getName().trim());
-		if (exist) { // throw error
+
+		if (exist) {
+			log.warn("CategoryServiceImpl : saveCategory() : Category already exists '{}'",
+					categoryDto.getName());
 			throw new ExistDataException("Category already exist");
 		}
 
@@ -47,23 +53,36 @@ public class CategoryServiceImpl implements CategoryService {
 
 		if (ObjectUtils.isEmpty(category.getId())) {
 			category.setIsDeleted(false);
-			// category.setCreatedBy(1);
 			category.setCreatedOn(new Date());
 		} else {
 			updateCategory(category);
 		}
 
 		Category saveCategory = categoryRepo.save(category);
+
 		if (ObjectUtils.isEmpty(saveCategory)) {
+			log.error("CategoryServiceImpl : saveCategory() : Failed to save category '{}'",
+					categoryDto.getName());
 			return false;
 		}
+
+		log.info("CategoryServiceImpl : saveCategory() : Category saved successfully. Id={}",
+				saveCategory.getId());
+
 		return true;
 	}
 
 	private void updateCategory(Category category) {
+
 		Optional<Category> findById = categoryRepo.findById(category.getId());
+
 		if (findById.isPresent()) {
+
+			log.info("CategoryServiceImpl : updateCategory() : Updating category. Id={}",
+					category.getId());
+
 			Category existCategory = findById.get();
+
 			category.setCreatedBy(existCategory.getCreatedBy());
 			category.setCreatedOn(existCategory.getCreatedOn());
 			category.setIsDeleted(existCategory.getIsDeleted());
@@ -75,45 +94,69 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public List<CategoryDto> getAllCategory() {
+
+		log.info("CategoryServiceImpl : getAllCategory() : Fetching all categories");
+
 		List<Category> categories = categoryRepo.findAll();
 
-		List<CategoryDto> categoryDtoList = categories.stream().map(cat -> mapper.map(cat, CategoryDto.class)).toList();
+		log.info("CategoryServiceImpl : getAllCategory() : {} categories fetched",
+				categories.size());
 
-		return categoryDtoList;
+		return categories.stream()
+				.map(cat -> mapper.map(cat, CategoryDto.class))
+				.toList();
 	}
 
 	@Override
 	public List<CategoryResponse> getActiveCategory() {
 
+		log.info("CategoryServiceImpl : getActiveCategory() : Fetching active categories");
+
 		List<Category> categories = categoryRepo.findByIsActiveTrueAndIsDeletedFalse();
-		List<CategoryResponse> categoryList = categories.stream().map(cat -> mapper.map(cat, CategoryResponse.class))
+
+		log.info("CategoryServiceImpl : getActiveCategory() : {} active categories fetched",
+				categories.size());
+
+		return categories.stream()
+				.map(cat -> mapper.map(cat, CategoryResponse.class))
 				.toList();
-		return categoryList;
 	}
 
 	@Override
 	public CategoryDto getCategoryById(Integer id) throws Exception {
 
+		log.info("CategoryServiceImpl : getCategoryById() : Fetching category. Id={}", id);
+
 		Category category = categoryRepo.findByIdAndIsDeletedFalse(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Category not found with id=" + id));
 
-		if (!ObjectUtils.isEmpty(category)) {
-			category.getName().toUpperCase();
-			return mapper.map(category, CategoryDto.class);
-		}
-		return null;
+		log.info("CategoryServiceImpl : getCategoryById() : Category fetched successfully. Id={}",
+				id);
+
+		return mapper.map(category, CategoryDto.class);
 	}
 
 	@Override
 	public Boolean deleteCategory(Integer id) {
-		Optional<Category> findByCatgeory = categoryRepo.findById(id);
 
-		if (findByCatgeory.isPresent()) {
-			Category category = findByCatgeory.get();
+		log.info("CategoryServiceImpl : deleteCategory() : Delete category request. Id={}", id);
+
+		Optional<Category> findByCategory = categoryRepo.findById(id);
+
+		if (findByCategory.isPresent()) {
+
+			Category category = findByCategory.get();
 			category.setIsDeleted(true);
 			categoryRepo.save(category);
+
+			log.info("CategoryServiceImpl : deleteCategory() : Category deleted successfully. Id={}",
+					id);
+
 			return true;
 		}
+
+		log.warn("CategoryServiceImpl : deleteCategory() : Category not found. Id={}", id);
+
 		return false;
 	}
 

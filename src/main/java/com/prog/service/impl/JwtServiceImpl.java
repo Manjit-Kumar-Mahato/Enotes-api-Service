@@ -19,7 +19,9 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class JwtServiceImpl implements JwtService{
 	
@@ -37,12 +39,11 @@ public class JwtServiceImpl implements JwtService{
 	
 	@Override
 	public String generateToken(User user) {
-
+		log.info("JwtServiceImpl : generateToken() : Generating JWT token for user={}", user.getEmail());
 		Map<String, Object> claims = new HashMap<>();
 		claims.put("id", user.getId());
 		claims.put("role", user.getRoles());
 		claims.put("status", user.getStatus().getIsActive());
-
 		String token = Jwts.builder().claims().add(claims)
 				.subject(user.getEmail())
 				.issuedAt(new Date(System.currentTimeMillis()))
@@ -50,7 +51,7 @@ public class JwtServiceImpl implements JwtService{
 				.and()
 				.signWith(getKey())
 				.compact();
-
+		log.info("JwtServiceImpl : generateToken() : JWT token generated successfully for user={}", user.getEmail());
 		return token;
 	}
 	
@@ -87,11 +88,14 @@ public class JwtServiceImpl implements JwtService{
 
 	@Override
 	public Boolean validateToken(String token, UserDetails userDetails) {
+		log.info("JwtServiceImpl : validateToken() : Validating JWT token for user={}", userDetails.getUsername());
 		String username =  extractUsername(token);
 		Boolean isExpired = isTokenExpired(token);
 		if(username.equalsIgnoreCase(userDetails.getUsername()) && !isExpired) {
+			log.info("JwtServiceImpl : validateToken() : JWT token validated successfully");
 			return true;
 		}
+		log.warn("JwtServiceImpl : validateToken() : JWT token validation failed");
 		return false;
 	}
 

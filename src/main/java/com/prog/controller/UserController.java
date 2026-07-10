@@ -16,6 +16,9 @@ import com.prog.entity.User;
 import com.prog.service.UserService;
 import com.prog.util.CommonUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/user")
 public class UserController {
@@ -28,14 +31,18 @@ public class UserController {
 
 	@GetMapping("/profile")
 	public ResponseEntity<?> getProfile() {
+		log.info("UserController : getProfile() : User profile request received");
 		User loggedInUser = CommonUtil.getLoggedInUser();
 		UserResponse userResponse = mapper.map(loggedInUser, UserResponse.class);
+		log.info("UserController : getProfile() : User profile fetched successfully");
 		return CommonUtil.createBuildResponse(userResponse, HttpStatus.OK);
 	}
 
 	@PostMapping("/chng-pswd")
 	public ResponseEntity<?> changePassword(@RequestBody PasswordChngRequest passwordRequest) {
+		log.info("UserController : changePassword() : Change password request received");
 		userService.changePassword(passwordRequest);
+		log.info("UserController : changePassword() : Password changed successfully");
 		return CommonUtil.createBuildResponseMessage("Password change success", HttpStatus.OK);
 	}
 

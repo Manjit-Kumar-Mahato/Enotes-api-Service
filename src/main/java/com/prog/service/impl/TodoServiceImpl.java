@@ -16,12 +16,15 @@ import com.prog.repository.TodoRepository;
 import com.prog.service.TodoService;
 import com.prog.util.Validation;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class TodoServiceImpl implements TodoService {
-	
+
 	@Autowired
 	private TodoRepository todoRepo;
-	
+
 	@Autowired
 	private ModelMapper mapper;
 
@@ -30,47 +33,70 @@ public class TodoServiceImpl implements TodoService {
 
 	@Override
 	public Boolean saveTodo(TodoDto todoDto) throws Exception {
-		// validate todo status
-		validation.todoValidation(todoDto);
 
+		log.info("TodoServiceImpl : saveTodo() : Saving todo");
+
+		validation.todoValidation(todoDto);
 
 		Todo todo = mapper.map(todoDto, Todo.class);
 		todo.setStatusId(todoDto.getStatus().getId());
+
 		Todo saveTodo = todoRepo.save(todo);
-		if(!ObjectUtils.isEmpty(saveTodo)) {
+
+		if (!ObjectUtils.isEmpty(saveTodo)) {
+			log.info("TodoServiceImpl : saveTodo() : Todo saved successfully. Id={}", saveTodo.getId());
 			return true;
 		}
+
+		log.error("TodoServiceImpl : saveTodo() : Failed to save todo");
+
 		return false;
 	}
 
 	@Override
 	public TodoDto getTodoById(Integer id) throws Exception {
-		Todo todo = todoRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Todo not Found | Id Invalid"));
+
+		log.info("TodoServiceImpl : getTodoById() : Fetching todo. Id={}", id);
+
+		Todo todo = todoRepo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Todo not Found | Id Invalid"));
+
 		TodoDto todoDto = mapper.map(todo, TodoDto.class);
-		setStatus(todoDto,todo);
+
+		setStatus(todoDto, todo);
+
+		log.info("TodoServiceImpl : getTodoById() : Todo fetched successfully. Id={}", id);
+
 		return todoDto;
 	}
 
 	private void setStatus(TodoDto todoDto, Todo todo) {
-		for(TodoStatus st:TodoStatus.values()) {
-			if(st.getId().equals(todo.getStatusId())) {
-				StatusDto statusDto=StatusDto.builder()
+
+		for (TodoStatus st : TodoStatus.values()) {
+			if (st.getId().equals(todo.getStatusId())) {
+				StatusDto statusDto = StatusDto.builder()
 						.id(st.getId())
 						.name(st.getName())
 						.build();
 				todoDto.setStatus(statusDto);
 			}
 		}
-
-		
 	}
 
 	@Override
 	public List<TodoDto> getTodoByUser() {
+
 		Integer userId = 2;
+
+		log.info("TodoServiceImpl : getTodoByUser() : Fetching todos for userId={}", userId);
+
 		List<Todo> todos = todoRepo.findByCreatedBy(userId);
-		return todos.stream().map(td -> mapper.map(td, TodoDto.class)).toList();
+
+		log.info("TodoServiceImpl : getTodoByUser() : {} todos fetched", todos.size());
+
+		return todos.stream()
+				.map(td -> mapper.map(td, TodoDto.class))
+				.toList();
 	}
-	
-	
+
 }

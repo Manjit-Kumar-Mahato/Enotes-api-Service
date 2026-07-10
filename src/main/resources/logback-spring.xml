@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Spring Boot default console configuration -->
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!-- File Appender -->
+    <appender name="FILE"
+        class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>log/logging.log</file>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+
+        <rollingPolicy
+            class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+
+            <fileNamePattern>log/logging-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+
+            <maxFileSize>100MB</maxFileSize>
+
+            <maxHistory>30</maxHistory>
+
+            <totalSizeCap>2GB</totalSizeCap>
+
+        </rollingPolicy>
+
+    </appender>
+
+    <!-- Root Logger -->
+    <root level="INFO">
+        <!-- Spring Boot default colorful console -->
+        <appender-ref ref="CONSOLE"/>
+
+        <!-- Your file logger -->
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>
