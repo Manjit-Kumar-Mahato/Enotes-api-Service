@@ -18,8 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.prog.dto.CategoryDto;
 import com.prog.dto.CategoryResponse;
-import com.prog.entity.Category;
-import com.prog.exception.ResourceNotFoundException;
+import com.prog.endpoint.CategoryEndpoint;
 import com.prog.service.CategoryService;
 import com.prog.util.CommonUtil;
 
@@ -27,75 +26,69 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1/category")
-public class CategoryController {
+public class CategoryController implements CategoryEndpoint{
 
 	@Autowired
 	private CategoryService categoryService;
 
-	@PostMapping("/save")
-	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<?> saveCategory(@RequestBody CategoryDto categoryDto) {
-
+	@Override
+	public ResponseEntity<?> saveCategory(CategoryDto categoryDto) {
+		log.info("CategoryController : saveCategory() : Save category request received. Category={}",categoryDto.getName());
 		Boolean saveCategory = categoryService.saveCategory(categoryDto);
 		if (saveCategory) {
+			log.info("CategoryController : saveCategory() : Category saved successfully. Category={}",categoryDto.getName());
 			return CommonUtil.createBuildResponseMessage("saved success", HttpStatus.CREATED);
-//			return new ResponseEntity<>("saved success", HttpStatus.CREATED);
-		} else {
-			return CommonUtil.createErrorResponseMessage("Category Not saved", HttpStatus.INTERNAL_SERVER_ERROR);
-//			return new ResponseEntity<>("not saved", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		log.error("CategoryController : saveCategory() : Failed to save category. Category={}",categoryDto.getName());
+		return CommonUtil.createErrorResponseMessage("Category Not saved", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	@GetMapping("/")
-	@PreAuthorize("hasRole('ADMIN')")
+	@Override
 	public ResponseEntity<?> getAllCategory() {
+		log.info("CategoryController : getAllCategory() : Fetch all categories request received");
 		List<CategoryDto> allCategory = categoryService.getAllCategory();
 		if (CollectionUtils.isEmpty(allCategory)) {
+			log.warn("CategoryController : getAllCategory() : No categories found");
 			return ResponseEntity.noContent().build();
-		} else {
-			return CommonUtil.createBuildResponse(allCategory, HttpStatus.OK);
-//			return new ResponseEntity<>(allCategory, HttpStatus.OK);
 		}
+		log.info("CategoryController : getAllCategory() : {} categories fetched successfully",allCategory.size());
+		return CommonUtil.createBuildResponse(allCategory, HttpStatus.OK);
 	}
 
-	@GetMapping("/active")
-	@PreAuthorize("hasAnyRole('USER','ADMIN')")
+	@Override
 	public ResponseEntity<?> getActiveCategory() {
-
+		log.info("CategoryController : getActiveCategory() : Fetch active categories request received");
 		List<CategoryResponse> allCategory = categoryService.getActiveCategory();
 		if (CollectionUtils.isEmpty(allCategory)) {
+			log.warn("CategoryController : getActiveCategory() : No active categories found");
 			return ResponseEntity.noContent().build();
-		} else {
-			return CommonUtil.createBuildResponse(allCategory, HttpStatus.OK);
-//			return new ResponseEntity<>(allCategory, HttpStatus.OK);
 		}
+		log.info("CategoryController : getActiveCategory() : {} active categories fetched successfully",allCategory.size());
+		return CommonUtil.createBuildResponse(allCategory, HttpStatus.OK);
 	}
 
-	@GetMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<?> getCategortDetailsById(@PathVariable Integer id) throws Exception {
-
+	@Override
+	public ResponseEntity<?> getCategortDetailsById(Integer id) throws Exception {
+		log.info("CategoryController : getCategoryDetailsById() : Fetch category request. Id={}", id);
 		CategoryDto categoryDto = categoryService.getCategoryById(id);
 		if (ObjectUtils.isEmpty(categoryDto)) {
+			log.warn("CategoryController : getCategoryDetailsById() : Category not found. Id={}", id);
 			return CommonUtil.createErrorResponseMessage("Internal Server Error", HttpStatus.NOT_FOUND);
-//			return new ResponseEntity<>("Internal Server Error", HttpStatus.NOT_FOUND);
 		}
+		log.info("CategoryController : getCategoryDetailsById() : Category fetched successfully. Id={}", id);
 		return CommonUtil.createBuildResponse(categoryDto, HttpStatus.OK);
-//		return new ResponseEntity<>(categoryDto, HttpStatus.OK);
 	}
 
-	@DeleteMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<?> deleteCategoryById(@PathVariable Integer id) {
+	@Override
+	public ResponseEntity<?> deleteCategoryById(Integer id) {
+		log.info("CategoryController : deleteCategoryById() : Delete category request. Id={}", id);
 		Boolean deleted = categoryService.deleteCategory(id);
 		if (deleted) {
+			log.info("CategoryController : deleteCategoryById() : Category deleted successfully. Id={}", id);
 			return CommonUtil.createBuildResponse("Category deleted success", HttpStatus.OK);
-//			return new ResponseEntity<>("Category deleted success", HttpStatus.OK);
 		}
+		log.error("CategoryController : deleteCategoryById() : Failed to delete category. Id={}", id);
 		return CommonUtil.createErrorResponseMessage("Category Not deleted", HttpStatus.INTERNAL_SERVER_ERROR);
-
-//		return new ResponseEntity<>("Category Not deleted", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 }

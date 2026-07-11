@@ -15,42 +15,50 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prog.dto.TodoDto;
+import com.prog.endpoint.TodoEndpoint;
 import com.prog.service.TodoService;
 import com.prog.util.CommonUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
-@RequestMapping("/api/v1/todo")
-public class TodoController {
+public class TodoController implements TodoEndpoint{
 
 	@Autowired
 	private TodoService todoService;
 
-	@PostMapping("/")
-	@PreAuthorize("hasRole('USER')")
-	public ResponseEntity<?> saveTodo(@RequestBody TodoDto todo) throws Exception {
+	@Override
+	public ResponseEntity<?> saveTodo(TodoDto todo) throws Exception {
+		log.info("TodoController : saveTodo() : Save todo request received");
 		Boolean saveTodo = todoService.saveTodo(todo);
 		if (saveTodo) {
+			log.info("TodoController : saveTodo() : Todo saved successfully");
 			return CommonUtil.createBuildResponseMessage("Todo Saved Success", HttpStatus.CREATED);
-		} else {
-			return CommonUtil.createErrorResponseMessage("Todo not save", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		log.error("TodoController : saveTodo() : Failed to save todo");
+		return CommonUtil.createErrorResponseMessage("Todo not save", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	@GetMapping("/{id}")
-	@PreAuthorize("hasRole('USER')")
-	public ResponseEntity<?> saveTodo(@PathVariable Integer id) throws Exception {
+	@Override
+	public ResponseEntity<?> getTodoById(Integer id) throws Exception {
+		log.info("TodoController : getTodoById() : Fetch todo request received. TodoId={}", id);
 		TodoDto todo = todoService.getTodoById(id);
+		log.info("TodoController : getTodoById() : Todo fetched successfully. TodoId={}", id);
 		return CommonUtil.createBuildResponse(todo, HttpStatus.OK);
 	}
 
-	@GetMapping("/list")
-	@PreAuthorize("hasRole('USER')")
+	@Override
 	public ResponseEntity<?> getAllTodoByUser() throws Exception {
+		log.info("TodoController : getAllTodoByUser() : Fetch user todo list request received");
 		List<TodoDto> todoList = todoService.getTodoByUser();
 		if (CollectionUtils.isEmpty(todoList)) {
+			log.warn("TodoController : getAllTodoByUser() : No todo found for user");
 			return ResponseEntity.noContent().build();
 		}
+		log.info("TodoController : getAllTodoByUser() : {} todos fetched successfully", todoList.size());
 		return CommonUtil.createBuildResponse(todoList, HttpStatus.OK);
 	}
+
 
 }

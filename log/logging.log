@@ -1,0 +1,71 @@
+2026-07-11 13:28:55.535 INFO  [restartedMain] c.prog.EnotesApiServiceApplication - Starting EnotesApiServiceApplication using Java 21.0.4 with PID 49804 (D:\java\spring\Enotes-api-Service\target\classes started by HP in D:\java\spring\Enotes-api-Service)
+2026-07-11 13:28:55.540 INFO  [restartedMain] c.prog.EnotesApiServiceApplication - The following 1 profile is active: "dev"
+2026-07-11 13:28:55.597 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-07-11 13:28:55.597 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-07-11 13:28:56.517 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-11 13:28:56.637 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 108 ms. Found 7 JPA repository interfaces.
+2026-07-11 13:28:57.816 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-07-11 13:28:57.838 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-11 13:28:57.838 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-07-11 13:28:57.892 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-07-11 13:28:57.894 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2295 ms
+2026-07-11 13:28:58.071 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-11 13:28:58.157 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-07-11 13:28:58.206 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-11 13:28:58.642 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-11 13:28:58.695 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-11 13:28:59.103 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e3d31d0
+2026-07-11 13:28:59.106 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-11 13:28:59.157 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-11 13:28:59.159 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-07-11 13:28:59.181 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-11 13:29:00.669 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-11 13:29:00.679 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-11 13:29:01.260 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-07-11 13:29:01.262 WARN  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-11 13:29:01.382 INFO  [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-11 13:29:02.590 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-11 13:29:03.472 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-07-11 13:29:03.532 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-07-11 13:29:03.545 INFO  [restartedMain] c.prog.EnotesApiServiceApplication - Started EnotesApiServiceApplication in 8.661 seconds (process running for 9.436)
+2026-07-11 13:29:36.771 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-11 13:29:36.772 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-07-11 13:29:36.775 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-07-11 13:29:36.832 INFO  [http-nio-8080-exec-1] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/auth/login
+2026-07-11 13:29:37.014 INFO  [http-nio-8080-exec-1] com.prog.controller.AuthController - Login request received for email=msugrp@gmail.com
+2026-07-11 13:29:37.014 INFO  [http-nio-8080-exec-1] c.prog.service.impl.AuthServiceImpl - AuthServiceImpl : login() : Login request received. Email=msugrp@gmail.com
+2026-07-11 13:29:37.467 INFO  [http-nio-8080-exec-1] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : generateToken() : Generating JWT token for user=msugrp@gmail.com
+2026-07-11 13:29:37.595 INFO  [http-nio-8080-exec-1] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : generateToken() : JWT token generated successfully for user=msugrp@gmail.com
+2026-07-11 13:29:37.596 INFO  [http-nio-8080-exec-1] c.prog.service.impl.AuthServiceImpl - AuthServiceImpl : login() : Login successful. UserId=9
+2026-07-11 13:29:37.645 INFO  [http-nio-8080-exec-1] com.prog.controller.AuthController - User logged in successfully for email=msugrp@gmail.com
+2026-07-11 13:30:23.809 INFO  [http-nio-8080-exec-4] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/category/active
+2026-07-11 13:30:23.886 INFO  [http-nio-8080-exec-4] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : JWT token received for user=msugrp@gmail.com
+2026-07-11 13:30:23.965 INFO  [http-nio-8080-exec-4] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : Validating JWT token for user=msugrp@gmail.com
+2026-07-11 13:30:23.971 INFO  [http-nio-8080-exec-4] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : JWT token validated successfully
+2026-07-11 13:30:23.972 INFO  [http-nio-8080-exec-4] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : User authenticated successfully. Username=msugrp@gmail.com
+2026-07-11 13:30:24.020 INFO  [http-nio-8080-exec-4] c.prog.controller.CategoryController - CategoryController : getActiveCategory() : Fetch active categories request received
+2026-07-11 13:30:24.020 INFO  [http-nio-8080-exec-4] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : getActiveCategory() : Fetching active categories
+2026-07-11 13:30:24.033 INFO  [http-nio-8080-exec-4] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : getActiveCategory() : 11 active categories fetched
+2026-07-11 13:30:24.039 INFO  [http-nio-8080-exec-4] c.prog.controller.CategoryController - CategoryController : getActiveCategory() : 11 active categories fetched successfully
+2026-07-11 13:30:33.584 INFO  [http-nio-8080-exec-3] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/category/
+2026-07-11 13:30:33.585 INFO  [http-nio-8080-exec-3] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : JWT token received for user=msugrp@gmail.com
+2026-07-11 13:30:33.597 INFO  [http-nio-8080-exec-3] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : Validating JWT token for user=msugrp@gmail.com
+2026-07-11 13:30:33.599 INFO  [http-nio-8080-exec-3] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : JWT token validated successfully
+2026-07-11 13:30:33.600 INFO  [http-nio-8080-exec-3] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : User authenticated successfully. Username=msugrp@gmail.com
+2026-07-11 13:30:33.601 INFO  [http-nio-8080-exec-3] c.prog.controller.CategoryController - CategoryController : getAllCategory() : Fetch all categories request received
+2026-07-11 13:30:33.601 INFO  [http-nio-8080-exec-3] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : getAllCategory() : Fetching all categories
+2026-07-11 13:30:33.643 INFO  [http-nio-8080-exec-3] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : getAllCategory() : 12 categories fetched
+2026-07-11 13:30:33.648 INFO  [http-nio-8080-exec-3] c.prog.controller.CategoryController - CategoryController : getAllCategory() : 12 categories fetched successfully
+2026-07-11 13:31:54.048 INFO  [RMI TCP Connection(6)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2026-07-11 13:31:54.051 INFO  [RMI TCP Connection(6)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-11 13:31:54.075 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-07-11 13:31:54.081 INFO  [RMI TCP Connection(6)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-11 13:31:54.084 INFO  [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-11 13:31:54.092 INFO  [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
