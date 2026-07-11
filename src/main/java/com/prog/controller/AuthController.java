@@ -27,7 +27,7 @@ public class AuthController implements AuthEndpoint{
     private AuthService authService;
 
     @Override
-    public ResponseEntity<?> registerUser(@RequestBody UserRequest userDto,HttpServletRequest request) throws Exception {
+    public ResponseEntity<?> registerUser(UserRequest userDto,HttpServletRequest request) throws Exception {
         log.info("Registration request received for email={}", userDto.getEmail());
         String url = CommonUtil.getUrl(request);
         Boolean register = authService.register(userDto, url);
@@ -40,7 +40,7 @@ public class AuthController implements AuthEndpoint{
     }
 
     @Override
-    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) throws Exception {
+    public ResponseEntity<?> login(LoginRequest loginRequest) throws Exception {
         log.info("Login request received for email={}", loginRequest.getEmail());
         LoginResponse loginResponse = authService.login(loginRequest);
         if (ObjectUtils.isEmpty(loginResponse)) {

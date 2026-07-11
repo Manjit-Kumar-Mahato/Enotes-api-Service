@@ -36,7 +36,7 @@ public class NotesController implements NotesEndpoint{
 	private NotesService notesService;
 
 	@Override
-	public ResponseEntity<?> saveNotes(@RequestParam String notes, @RequestParam(required = false) MultipartFile file)throws Exception {
+	public ResponseEntity<?> saveNotes(String notes,MultipartFile file)throws Exception {
 		log.info("NotesController : saveNotes() : Save notes request received");
 		Boolean saveNotes = notesService.saveNotes(notes, file);
 		if (saveNotes) {
@@ -48,7 +48,7 @@ public class NotesController implements NotesEndpoint{
 	}
 
 	@Override
-	public ResponseEntity<?> downloadFile(@PathVariable Integer id) throws Exception {
+	public ResponseEntity<?> downloadFile(Integer id) throws Exception {
 		log.info("NotesController : downloadFile() : File download request received. FileId={}", id);
 		FileDetails fileDetails = notesService.getFileDetails(id);
 		byte[] data = notesService.downloadFile(fileDetails);
@@ -73,10 +73,7 @@ public class NotesController implements NotesEndpoint{
 	}
 
 	@Override
-	public ResponseEntity<?> searchNotes(
-			@RequestParam(name = "key", defaultValue = "") String key,
-			@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
-			@RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize) {
+	public ResponseEntity<?> searchNotes(String key,Integer pageNo,Integer pageSize) {
 		log.info("NotesController : searchNotes() : Search request received. Keyword={}", key);
 		NotesResponse notes = notesService.getNotesByUserSearch(pageNo, pageSize, key);
 		log.info("NotesController : searchNotes() : Search completed successfully");
@@ -84,9 +81,7 @@ public class NotesController implements NotesEndpoint{
 	}
 
 	@Override
-	public ResponseEntity<?> getAllNotesByUser(
-			@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
-			@RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize) {
+	public ResponseEntity<?> getAllNotesByUser(Integer pageNo,Integer pageSize) {
 		log.info("NotesController : getAllNotesByUser() : Fetch user notes request received");
 		NotesResponse notes = notesService.getAllNotesByUser( pageNo, pageSize);
 		log.info("NotesController : getAllNotesByUser() : User notes fetched successfully");
@@ -94,7 +89,7 @@ public class NotesController implements NotesEndpoint{
 	}
 
 	@Override
-	public ResponseEntity<?> deleteNotes(@PathVariable Integer id) throws Exception {
+	public ResponseEntity<?> deleteNotes(Integer id) throws Exception {
 		log.info("NotesController : deleteNotes() : Soft delete request received. NoteId={}", id);
 		notesService.softDeleteNotes(id);
 		log.info("NotesController : deleteNotes() : Note moved to recycle bin successfully. NoteId={}", id);
@@ -102,7 +97,7 @@ public class NotesController implements NotesEndpoint{
 	}
 
 	@Override
-	public ResponseEntity<?> restoreNotes(@PathVariable Integer id) throws Exception {
+	public ResponseEntity<?> restoreNotes(Integer id) throws Exception {
 		log.info("NotesController : restoreNotes() : Restore note request received. NoteId={}", id);
 		notesService.restoreNotes(id);
 		log.info("NotesController : restoreNotes() : Note restored successfully. NoteId={}", id);
@@ -122,7 +117,7 @@ public class NotesController implements NotesEndpoint{
 	}
 
 	@Override
-	public ResponseEntity<?> hardDeleteNotes(@PathVariable Integer id) throws Exception {
+	public ResponseEntity<?> hardDeleteNotes(Integer id) throws Exception {
 		log.info("NotesController : hardDeleteNotes() : Permanent delete request received. NoteId={}", id);
 		notesService.hardDeleteNotes(id);
 		log.info("NotesController : hardDeleteNotes() : Note permanently deleted. NoteId={}", id);
@@ -138,7 +133,7 @@ public class NotesController implements NotesEndpoint{
 	}
 
 	@Override
-	public ResponseEntity<?> favoriteNote(@PathVariable Integer noteId) throws Exception {
+	public ResponseEntity<?> favoriteNote(Integer noteId) throws Exception {
 		log.info("NotesController : favoriteNote() : Add favourite request received. NoteId={}", noteId);
 		notesService.favoriteNotes(noteId);
 		log.info("NotesController : favoriteNote() : Note added to favourites successfully. NoteId={}", noteId);
@@ -146,7 +141,7 @@ public class NotesController implements NotesEndpoint{
 	}
 
 	@Override
-	public ResponseEntity<?> unFavoriteNote(@PathVariable Integer favNotId) throws Exception {
+	public ResponseEntity<?> unFavoriteNote(Integer favNotId) throws Exception {
 		log.info("NotesController : unFavoriteNote() : Remove favourite request received. FavouriteId={}", favNotId);
 		notesService.unFavoriteNotes(favNotId);
 		log.info("NotesController : unFavoriteNote() : Favourite removed successfully. FavouriteId={}", favNotId);
@@ -169,7 +164,7 @@ public class NotesController implements NotesEndpoint{
 	}
 
 	@Override
-	public ResponseEntity<?> copyNotes(@PathVariable Integer id) throws Exception {
+	public ResponseEntity<?> copyNotes(Integer id) throws Exception {
 		log.info("NotesController : copyNotes() : Copy note request received. NoteId={}", id);
 		Boolean copyNotes = notesService.copyNotes(id);
 		if (copyNotes) {

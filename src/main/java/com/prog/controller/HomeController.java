@@ -30,7 +30,7 @@ public class HomeController implements HomeEndpoint{
 	private UserService userService;
 
 	@Override
-	public ResponseEntity<?> verifyUserAccount(@RequestParam Integer uid,@RequestParam String code) throws Exception {
+	public ResponseEntity<?> verifyUserAccount(Integer uid,String code) throws Exception {
 		log.info("HomeController : verifyUserAccount() : Account verification request received. UserId={}", uid);
 		Boolean verifyAccount = homeService.verifyAccount(uid, code);
 		if (verifyAccount) {
@@ -42,7 +42,7 @@ public class HomeController implements HomeEndpoint{
 	}
 
 	@Override
-	public ResponseEntity<?> sendEmailForPasswordReset(@RequestParam String email,HttpServletRequest request) throws Exception {
+	public ResponseEntity<?> sendEmailForPasswordReset(String email,HttpServletRequest request) throws Exception {
 		log.info("HomeController : sendEmailForPasswordReset() : Password reset email request received. Email={}",email);
 		userService.sendEmailPasswordReset(email, request);
 		log.info("HomeController : sendEmailForPasswordReset() : Password reset email sent successfully. Email={}",email);
@@ -50,7 +50,7 @@ public class HomeController implements HomeEndpoint{
 	}
 
 	@Override
-	public ResponseEntity<?> verifyPasswordResetLink(@RequestParam Integer uid,@RequestParam String code) throws Exception {
+	public ResponseEntity<?> verifyPasswordResetLink(Integer uid,String code) throws Exception {
 		log.info("HomeController : verifyPasswordResetLink() : Password reset link verification request. UserId={}",uid);
 		userService.verifyPswdResetLink(uid, code);
 		log.info("HomeController : verifyPasswordResetLink() : Password reset link verified successfully. UserId={}",uid);
