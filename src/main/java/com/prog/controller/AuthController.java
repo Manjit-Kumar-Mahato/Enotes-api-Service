@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.prog.dto.LoginRequest;
 import com.prog.dto.LoginResponse;
 import com.prog.dto.UserRequest;
+import com.prog.endpoint.AuthEndpoint;
 import com.prog.service.AuthService;
 import com.prog.util.CommonUtil;
 
@@ -20,13 +21,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1/auth")
-public class AuthController {
+public class AuthController implements AuthEndpoint{
 
     @Autowired
     private AuthService authService;
 
-    @PostMapping("/")
+    @Override
     public ResponseEntity<?> registerUser(@RequestBody UserRequest userDto,HttpServletRequest request) throws Exception {
         log.info("Registration request received for email={}", userDto.getEmail());
         String url = CommonUtil.getUrl(request);
@@ -39,7 +39,7 @@ public class AuthController {
         return CommonUtil.createBuildResponseMessage("Register success", HttpStatus.CREATED);
     }
 
-    @PostMapping("/login")
+    @Override
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) throws Exception {
         log.info("Login request received for email={}", loginRequest.getEmail());
         LoginResponse loginResponse = authService.login(loginRequest);

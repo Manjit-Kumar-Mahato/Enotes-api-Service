@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.prog.dto.CategoryDto;
 import com.prog.dto.CategoryResponse;
+import com.prog.endpoint.CategoryEndpoint;
 import com.prog.service.CategoryService;
 import com.prog.util.CommonUtil;
 
@@ -25,14 +26,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1/category")
-public class CategoryController {
+public class CategoryController implements CategoryEndpoint{
 
 	@Autowired
 	private CategoryService categoryService;
 
-	@PostMapping("/save")
-	@PreAuthorize("hasRole('ADMIN')")
+	@Override
 	public ResponseEntity<?> saveCategory(@RequestBody CategoryDto categoryDto) {
 		log.info("CategoryController : saveCategory() : Save category request received. Category={}",categoryDto.getName());
 		Boolean saveCategory = categoryService.saveCategory(categoryDto);
@@ -44,8 +43,7 @@ public class CategoryController {
 		return CommonUtil.createErrorResponseMessage("Category Not saved", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	@GetMapping("/")
-	@PreAuthorize("hasRole('ADMIN')")
+	@Override
 	public ResponseEntity<?> getAllCategory() {
 		log.info("CategoryController : getAllCategory() : Fetch all categories request received");
 		List<CategoryDto> allCategory = categoryService.getAllCategory();
@@ -57,8 +55,7 @@ public class CategoryController {
 		return CommonUtil.createBuildResponse(allCategory, HttpStatus.OK);
 	}
 
-	@GetMapping("/active")
-	@PreAuthorize("hasAnyRole('USER','ADMIN')")
+	@Override
 	public ResponseEntity<?> getActiveCategory() {
 		log.info("CategoryController : getActiveCategory() : Fetch active categories request received");
 		List<CategoryResponse> allCategory = categoryService.getActiveCategory();
@@ -70,8 +67,7 @@ public class CategoryController {
 		return CommonUtil.createBuildResponse(allCategory, HttpStatus.OK);
 	}
 
-	@GetMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	@Override
 	public ResponseEntity<?> getCategortDetailsById(@PathVariable Integer id) throws Exception {
 		log.info("CategoryController : getCategoryDetailsById() : Fetch category request. Id={}", id);
 		CategoryDto categoryDto = categoryService.getCategoryById(id);
@@ -83,8 +79,7 @@ public class CategoryController {
 		return CommonUtil.createBuildResponse(categoryDto, HttpStatus.OK);
 	}
 
-	@DeleteMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	@Override
 	public ResponseEntity<?> deleteCategoryById(@PathVariable Integer id) {
 		log.info("CategoryController : deleteCategoryById() : Delete category request. Id={}", id);
 		Boolean deleted = categoryService.deleteCategory(id);

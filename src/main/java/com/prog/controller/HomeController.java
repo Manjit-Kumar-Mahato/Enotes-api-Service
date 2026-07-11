@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prog.dto.PswdResetRequest;
+import com.prog.endpoint.HomeEndpoint;
 import com.prog.service.HomeService;
 import com.prog.service.UserService;
 import com.prog.util.CommonUtil;
@@ -20,8 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1/home")
-public class HomeController {
+public class HomeController implements HomeEndpoint{
 
 	@Autowired
 	private HomeService homeService;
@@ -29,7 +29,7 @@ public class HomeController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("/verify")
+	@Override
 	public ResponseEntity<?> verifyUserAccount(@RequestParam Integer uid,@RequestParam String code) throws Exception {
 		log.info("HomeController : verifyUserAccount() : Account verification request received. UserId={}", uid);
 		Boolean verifyAccount = homeService.verifyAccount(uid, code);
@@ -41,7 +41,7 @@ public class HomeController {
 		return CommonUtil.createErrorResponseMessage("Invalid Verification link", HttpStatus.BAD_REQUEST);
 	}
 
-	@GetMapping("/send-email-reset")
+	@Override
 	public ResponseEntity<?> sendEmailForPasswordReset(@RequestParam String email,HttpServletRequest request) throws Exception {
 		log.info("HomeController : sendEmailForPasswordReset() : Password reset email request received. Email={}",email);
 		userService.sendEmailPasswordReset(email, request);
@@ -49,7 +49,7 @@ public class HomeController {
 		return CommonUtil.createBuildResponseMessage("Email send Success !! Check your email", HttpStatus.OK);
 	}
 
-	@GetMapping("/verify-pswd-link")
+	@Override
 	public ResponseEntity<?> verifyPasswordResetLink(@RequestParam Integer uid,@RequestParam String code) throws Exception {
 		log.info("HomeController : verifyPasswordResetLink() : Password reset link verification request. UserId={}",uid);
 		userService.verifyPswdResetLink(uid, code);
@@ -57,7 +57,7 @@ public class HomeController {
 		return CommonUtil.createBuildResponseMessage("Verification success", HttpStatus.OK);
 	}
 
-	@PostMapping("/reset-pswd")
+	@Override
 	public ResponseEntity<?> resetPassword(@RequestBody PswdResetRequest pswdResetRequest) throws Exception {
 		log.info("HomeController : resetPassword() : Password reset request received");
 		userService.resetPassword(pswdResetRequest);
