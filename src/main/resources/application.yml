@@ -3,8 +3,8 @@ spring:
     name: Enotes_API_Service
   profiles:
     active:
-    - dev
-    
+      - dev
+
 ---
 # dev config
 spring:
@@ -14,43 +14,44 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/enotes_dev
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password:
+    username: YOUR_DB_USERNAME
+    password: YOUR_DB_PASSWORD
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: none    
+      ddl-auto: none
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
   mail:
     host: smtp.gmail.com
-    username: mail@gmail.com
-    password: 
+    username: YOUR_EMAIL@gmail.com
+    password: YOUR_GMAIL_APP_PASSWORD
     port: 587
     properties:
       mail:
         smtp:
           auth: true
-        starttls:
-          enable: true   
+          starttls:
+            enable: true
+
 springdoc:
   swagger-ui:
     operationsSorter: method
     tagSorter: alpha
     path: /enotes-doc
   api-docs:
-    path: /enotes-api-docs
-    
+    path: /enotes-api-doc
+
 file:
   upload:
-    path: notes/ 
-    
+    path: notes/
+
 ---
-# test Config
+# test config
 spring:
   config:
     activate:
@@ -58,35 +59,44 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/enotes_test
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 
+    username: YOUR_DB_USERNAME
+    password: YOUR_DB_PASSWORD
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: none    
+      ddl-auto: none
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
   mail:
     host: smtp.gmail.com
-    username: mail@gmail.com
-    password: 
+    username: YOUR_EMAIL@gmail.com
+    password: YOUR_GMAIL_APP_PASSWORD
     port: 587
     properties:
       mail:
         smtp:
           auth: true
-        starttls:
-          enable: true       
+          starttls:
+            enable: true
+
+springdoc:
+  swagger-ui:
+    operationsSorter: method
+    tagSorter: alpha
+    path: /enotes-doc
+  api-docs:
+    path: /enotes-api-doc
+
 file:
   upload:
     path: notes/
-    
+
 ---
-# uat Config
+# uat config
 spring:
   config:
     activate:
@@ -94,33 +104,42 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/enotes_uat
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 
+    username: YOUR_DB_USERNAME
+    password: YOUR_DB_PASSWORD
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: none    
+      ddl-auto: none
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
   mail:
     host: smtp.gmail.com
-    username: mail@gmail.com
-    password: 
+    username: YOUR_EMAIL@gmail.com
+    password: YOUR_GMAIL_APP_PASSWORD
     port: 587
     properties:
       mail:
         smtp:
           auth: true
-        starttls:
-          enable: true       
+          starttls:
+            enable: true
+
+springdoc:
+  swagger-ui:
+    operationsSorter: method
+    tagSorter: alpha
+    path: /enotes-doc
+  api-docs:
+    path: /enotes-api-doc
+
 file:
   upload:
     path: notes/
-    
+
 ---
 # prod config
 spring:
@@ -130,29 +149,41 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/enotes_prod
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password:
+    username: YOUR_DB_USERNAME
+    password: YOUR_DB_PASSWORD
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: none    
+      ddl-auto: none
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
   mail:
     host: smtp.gmail.com
-    username: mail@gmail.com
-    password: 
+    username: YOUR_EMAIL@gmail.com
+    password: YOUR_GMAIL_APP_PASSWORD
     port: 587
     properties:
       mail:
         smtp:
           auth: true
-        starttls:
-          enable: true       
+          starttls:
+            enable: true
+
+server:
+  port: 8083
+
+springdoc:
+  swagger-ui:
+    operationsSorter: method
+    tagSorter: alpha
+    path: /enotes-doc
+  api-docs:
+    path: /enotes-api-doc
+
 file:
   upload:
-    path: notes/                       
+    path: notes/
