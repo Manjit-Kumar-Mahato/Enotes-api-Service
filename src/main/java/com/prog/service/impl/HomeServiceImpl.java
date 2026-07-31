@@ -1,6 +1,5 @@
 package com.prog.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.prog.entity.AccountStatus;
@@ -10,14 +9,15 @@ import com.prog.exception.SuccessException;
 import com.prog.repository.UserRepository;
 import com.prog.service.HomeService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class HomeServiceImpl implements HomeService {
 
-	@Autowired
-	private UserRepository userRepo;
+	private final UserRepository userRepo;
 
 	@Override
 	public Boolean verifyAccount(Integer userId, String verificationCode) throws Exception {

@@ -2,7 +2,6 @@ package com.prog.service.impl;
 
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -18,20 +17,19 @@ import com.prog.service.UserService;
 import com.prog.util.CommonUtil;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-
-	@Autowired
-	private UserRepository userRepo;
-
-	@Autowired
-	private EmailService emailService;
+	
+	private final PasswordEncoder passwordEncoder;
+	
+	private final UserRepository userRepo;
+	
+	private final EmailService emailService;
 
 	@Override
 	public void changePassword(PasswordChngRequest passwordRequest) {

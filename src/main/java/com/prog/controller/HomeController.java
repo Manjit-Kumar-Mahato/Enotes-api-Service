@@ -1,13 +1,8 @@
 package com.prog.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prog.dto.PswdResetRequest;
@@ -17,17 +12,17 @@ import com.prog.service.UserService;
 import com.prog.util.CommonUtil;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 public class HomeController implements HomeEndpoint{
 
-	@Autowired
-	private HomeService homeService;
+	private final HomeService homeService;
 
-	@Autowired
-	private UserService userService;
+	private final UserService userService;
 
 	@Override
 	public ResponseEntity<?> verifyUserAccount(Integer uid,String code) throws Exception {

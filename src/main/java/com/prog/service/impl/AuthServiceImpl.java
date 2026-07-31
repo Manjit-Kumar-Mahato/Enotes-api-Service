@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -27,35 +26,29 @@ import com.prog.service.JwtService;
 import com.prog.service.AuthService;
 import com.prog.util.Validation;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
 
-	@Autowired
-	private UserRepository userRepo;
+	private final UserRepository userRepo;
 
-	@Autowired
-	private RoleRepository roleRepo;
+	private final RoleRepository roleRepo;
 
-	@Autowired
-	private Validation validation;
+	private final Validation validation;
 
-	@Autowired
-	private ModelMapper mapper;
+	private final ModelMapper mapper;
 
-	@Autowired
-	private EmailService emailService;
+	private final EmailService emailService;
+	
+	private final AuthenticationManager authenticationManager;
 
-	@Autowired
-	private AuthenticationManager authenticationManager;
+	private final BCryptPasswordEncoder passwordEncoder;
 
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
-
-	@Autowired
-	private JwtService jwtService;
+	private final JwtService jwtService;
 
 	@Override
 	public Boolean register(UserRequest userDto, String url) throws Exception {

@@ -1,24 +1,17 @@
-2026-07-30 19:14:34.806 INFO  [restartedMain] c.prog.EnotesApiServiceApplication - Starting EnotesApiServiceApplication using Java 21.0.4 with PID 47244 (D:\java\spring\Enotes-api-Service\target\classes started by HP in D:\java\spring\Enotes-api-Service)
-2026-07-30 19:14:34.811 INFO  [restartedMain] c.prog.EnotesApiServiceApplication - The following 1 profile is active: "dev"
-2026-07-30 19:14:34.886 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-07-30 19:14:34.887 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-07-30 19:14:36.507 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-07-30 19:14:36.600 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 80 ms. Found 7 JPA repository interfaces.
-2026-07-30 19:14:37.709 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-07-30 19:14:37.729 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-07-30 19:14:37.730 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.55]
-2026-07-30 19:14:37.796 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-07-30 19:14:37.797 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2908 ms
-2026-07-30 19:14:37.978 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-07-30 19:14:38.051 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.53.Final
-2026-07-30 19:14:38.094 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-07-30 19:14:38.433 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-07-30 19:14:38.470 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-07-30 19:14:38.879 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@35faaa38
-2026-07-30 19:14:38.882 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-07-30 19:14:38.962 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-07-30 19:14:38.967 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2026-07-30 19:14:38.988 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-07-31 17:54:47.641 INFO  [main] c.p.EnotesApiServiceApplicationTests - Starting EnotesApiServiceApplicationTests using Java 21.0.4 with PID 15240 (started by HP in D:\java\spring\Enotes-api-Service)
+2026-07-31 17:54:47.654 INFO  [main] c.p.EnotesApiServiceApplicationTests - The following 1 profile is active: "dev"
+2026-07-31 17:54:49.792 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-31 17:54:49.991 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 184 ms. Found 7 JPA repository interfaces.
+2026-07-31 17:54:51.292 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-31 17:54:51.387 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-07-31 17:54:51.435 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-31 17:54:51.919 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-31 17:54:51.969 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-31 17:54:52.571 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@52bc6fcf
+2026-07-31 17:54:52.574 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-31 17:54:52.656 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-31 17:54:52.659 WARN  [main] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-07-31 17:54:52.684 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -26,286 +19,168 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-07-30 19:14:40.231 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-07-30 19:14:40.236 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-07-30 19:14:40.837 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2026-07-30 19:14:40.838 WARN  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-07-30 19:14:40.972 INFO  [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-07-30 19:14:42.163 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-07-30 19:14:43.080 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2026-07-30 19:14:43.127 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-07-30 19:14:43.138 INFO  [restartedMain] c.prog.EnotesApiServiceApplication - Started EnotesApiServiceApplication in 9.009 seconds (process running for 10.236)
-2026-07-30 19:14:53.704 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-07-30 19:14:53.704 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-07-30 19:14:53.709 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
-2026-07-30 19:14:53.742 INFO  [http-nio-8080-exec-1] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /swagger-ui/index.html
-2026-07-30 19:14:53.843 INFO  [http-nio-8080-exec-2] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /swagger-ui/swagger-ui.css
-2026-07-30 19:14:53.844 INFO  [http-nio-8080-exec-3] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /swagger-ui/index.css
-2026-07-30 19:14:53.846 INFO  [http-nio-8080-exec-4] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /swagger-ui/swagger-ui-bundle.js
-2026-07-30 19:14:53.849 INFO  [http-nio-8080-exec-5] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /swagger-ui/swagger-ui-standalone-preset.js
-2026-07-30 19:14:53.875 INFO  [http-nio-8080-exec-6] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /swagger-ui/swagger-initializer.js
-2026-07-30 19:14:54.041 INFO  [http-nio-8080-exec-8] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /swagger-ui/favicon-32x32.png
-2026-07-30 19:14:54.042 INFO  [http-nio-8080-exec-7] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /enotes-api-doc/swagger-config
-2026-07-30 19:14:54.111 INFO  [http-nio-8080-exec-9] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /enotes-api-doc
-2026-07-30 19:14:54.745 INFO  [http-nio-8080-exec-9] o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 615 ms
-2026-07-30 19:15:00.574 INFO  [http-nio-8080-exec-10] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /enotes-api-doc
-2026-07-30 19:15:00.632 INFO  [http-nio-8080-exec-1] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /favicon.ico
-2026-07-30 19:17:09.574 INFO  [http-nio-8080-exec-6] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/auth/login
-2026-07-30 19:17:09.604 INFO  [http-nio-8080-exec-6] com.prog.controller.AuthController - Login request received for email=msugrp@gmail.com
-2026-07-30 19:17:09.604 INFO  [http-nio-8080-exec-6] c.prog.service.impl.AuthServiceImpl - AuthServiceImpl : login() : Login request received. Email=msugrp@gmail.com
-2026-07-30 19:17:10.144 INFO  [http-nio-8080-exec-6] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : generateToken() : Generating JWT token for user=msugrp@gmail.com
-2026-07-30 19:17:10.278 INFO  [http-nio-8080-exec-6] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : generateToken() : JWT token generated successfully for user=msugrp@gmail.com
-2026-07-30 19:17:10.279 INFO  [http-nio-8080-exec-6] c.prog.service.impl.AuthServiceImpl - AuthServiceImpl : login() : Login successful. UserId=9
-2026-07-30 19:17:10.324 INFO  [http-nio-8080-exec-6] com.prog.controller.AuthController - User logged in successfully for email=msugrp@gmail.com
-2026-07-30 19:18:19.245 INFO  [http-nio-8080-exec-7] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/category/5
-2026-07-30 19:18:44.910 INFO  [http-nio-8080-exec-9] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/category/5
-2026-07-30 19:18:44.959 INFO  [http-nio-8080-exec-9] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : JWT token received for user=msugrp@gmail.com
-2026-07-30 19:18:45.009 INFO  [http-nio-8080-exec-9] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : Validating JWT token for user=msugrp@gmail.com
-2026-07-30 19:18:45.011 INFO  [http-nio-8080-exec-9] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : JWT token validated successfully
-2026-07-30 19:18:45.012 INFO  [http-nio-8080-exec-9] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : User authenticated successfully. Username=msugrp@gmail.com
-2026-07-30 19:18:45.024 INFO  [http-nio-8080-exec-9] c.prog.controller.CategoryController - CategoryController : getCategoryDetailsById() : Fetch category request. Id=5
-2026-07-30 19:18:45.024 INFO  [http-nio-8080-exec-9] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : getCategoryById() : Fetching category. Id=5
-2026-07-30 19:18:45.051 INFO  [http-nio-8080-exec-9] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : getCategoryById() : Category fetched successfully. Id=5
-2026-07-30 19:18:45.055 INFO  [http-nio-8080-exec-9] c.prog.controller.CategoryController - CategoryController : getCategoryDetailsById() : Category fetched successfully. Id=5
-2026-07-30 19:19:36.177 INFO  [http-nio-8080-exec-10] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/category/
-2026-07-30 19:19:36.179 INFO  [http-nio-8080-exec-10] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : JWT token received for user=msugrp@gmail.com
-2026-07-30 19:19:36.189 INFO  [http-nio-8080-exec-10] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : Validating JWT token for user=msugrp@gmail.com
-2026-07-30 19:19:36.192 INFO  [http-nio-8080-exec-10] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : JWT token validated successfully
-2026-07-30 19:19:36.193 INFO  [http-nio-8080-exec-10] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : User authenticated successfully. Username=msugrp@gmail.com
-2026-07-30 19:19:36.194 INFO  [http-nio-8080-exec-10] c.prog.controller.CategoryController - CategoryController : getAllCategory() : Fetch all categories request received
-2026-07-30 19:19:36.195 INFO  [http-nio-8080-exec-10] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : getAllCategory() : Fetching all categories
-2026-07-30 19:19:36.231 INFO  [http-nio-8080-exec-10] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : getAllCategory() : 12 categories fetched
-2026-07-30 19:19:36.235 INFO  [http-nio-8080-exec-10] c.prog.controller.CategoryController - CategoryController : getAllCategory() : 12 categories fetched successfully
-2026-07-30 19:57:39.105 INFO  [http-nio-8080-exec-2] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/notes/
-2026-07-30 19:57:39.108 INFO  [http-nio-8080-exec-2] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : JWT token received for user=msugrp@gmail.com
-2026-07-30 19:57:39.120 INFO  [http-nio-8080-exec-2] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : Validating JWT token for user=msugrp@gmail.com
-2026-07-30 19:57:39.121 INFO  [http-nio-8080-exec-2] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : JWT token validated successfully
-2026-07-30 19:57:39.122 INFO  [http-nio-8080-exec-2] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : User authenticated successfully. Username=msugrp@gmail.com
-2026-07-30 19:57:39.163 INFO  [http-nio-8080-exec-2] com.prog.controller.NotesController - NotesController : saveNotes() : Save notes request received
-2026-07-30 19:57:39.164 INFO  [http-nio-8080-exec-2] c.prog.service.impl.NotesServiceImpl - NotesServiceImpl : saveNotes() : Saving notes
-2026-07-30 19:57:39.297 INFO  [http-nio-8080-exec-2] c.prog.service.impl.NotesServiceImpl - NotesServiceImpl : saveNotes() : Notes saved successfully. NoteId=7
-2026-07-30 19:57:39.297 INFO  [http-nio-8080-exec-2] com.prog.controller.NotesController - NotesController : saveNotes() : Notes saved successfully
-2026-07-30 19:59:12.041 INFO  [http-nio-8080-exec-5] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/notes/user-notes
-2026-07-30 19:59:12.076 INFO  [http-nio-8080-exec-5] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : JWT token received for user=msugrp@gmail.com
-2026-07-30 19:59:12.103 INFO  [http-nio-8080-exec-5] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : Validating JWT token for user=msugrp@gmail.com
-2026-07-30 19:59:12.113 INFO  [http-nio-8080-exec-5] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : JWT token validated successfully
-2026-07-30 19:59:12.114 INFO  [http-nio-8080-exec-5] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : User authenticated successfully. Username=msugrp@gmail.com
-2026-07-30 19:59:12.129 INFO  [http-nio-8080-exec-5] com.prog.controller.NotesController - NotesController : getAllNotesByUser() : Fetch user notes request received
-2026-07-30 19:59:12.129 INFO  [http-nio-8080-exec-5] c.prog.service.impl.NotesServiceImpl - NotesServiceImpl : getAllNotesByUser() : Fetching notes for userId=9
-2026-07-30 19:59:12.228 INFO  [http-nio-8080-exec-5] c.prog.service.impl.NotesServiceImpl - NotesServiceImpl : getAllNotesByUser() : 7 notes fetched
-2026-07-30 19:59:12.229 INFO  [http-nio-8080-exec-5] com.prog.controller.NotesController - NotesController : getAllNotesByUser() : User notes fetched successfully
-2026-07-30 20:01:22.827 INFO  [http-nio-8080-exec-6] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/notes/download/4
-2026-07-30 20:01:22.844 INFO  [http-nio-8080-exec-6] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : JWT token received for user=msugrp@gmail.com
-2026-07-30 20:01:22.856 INFO  [http-nio-8080-exec-6] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : Validating JWT token for user=msugrp@gmail.com
-2026-07-30 20:01:22.859 INFO  [http-nio-8080-exec-6] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : JWT token validated successfully
-2026-07-30 20:01:22.860 INFO  [http-nio-8080-exec-6] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : User authenticated successfully. Username=msugrp@gmail.com
-2026-07-30 20:01:22.865 INFO  [http-nio-8080-exec-6] com.prog.controller.NotesController - NotesController : downloadFile() : File download request received. FileId=4
-2026-07-30 20:01:22.865 INFO  [http-nio-8080-exec-6] c.prog.service.impl.NotesServiceImpl - NotesServiceImpl : getFileDetails() : Fetching file details. FileId=4
-2026-07-30 20:01:22.876 INFO  [http-nio-8080-exec-6] c.prog.service.impl.NotesServiceImpl - NotesServiceImpl : downloadFile() : Downloading file '21st.pdf'
-2026-07-30 20:01:22.924 INFO  [http-nio-8080-exec-6] com.prog.controller.NotesController - NotesController : downloadFile() : File downloaded successfully. FileId=4
-2026-07-30 20:14:18.954 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2026-07-30 20:14:18.961 INFO  [Thread-5] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-07-30 20:14:18.973 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-07-30 20:14:18.981 INFO  [Thread-5] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-07-30 20:14:18.989 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-07-30 20:14:18.999 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-07-30 20:14:19.123 ERROR [restartedMain] o.s.boot.SpringApplication - Application run failed
-while scanning for the next token
-found character '\t(TAB)' that cannot start any token. (Do not use \t(TAB) for indentation)
- in 'reader', line 179, column 1:
-    		
-    ^
-
-	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchMoreTokens(ScannerImpl.java:460)
-	at org.yaml.snakeyaml.scanner.ScannerImpl.checkToken(ScannerImpl.java:239)
-	at org.yaml.snakeyaml.parser.ParserImpl$ParseBlockMappingKey.produce(ParserImpl.java:637)
-	at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:161)
-	at org.yaml.snakeyaml.comments.CommentEventsCollector$1.peek(CommentEventsCollector.java:57)
-	at org.yaml.snakeyaml.comments.CommentEventsCollector$1.peek(CommentEventsCollector.java:43)
-	at org.yaml.snakeyaml.comments.CommentEventsCollector.collectEvents(CommentEventsCollector.java:136)
-	at org.yaml.snakeyaml.comments.CommentEventsCollector.collectEvents(CommentEventsCollector.java:116)
-	at org.yaml.snakeyaml.composer.Composer.composeScalarNode(Composer.java:249)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:214)
-	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:396)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:361)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
-	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:396)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:361)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
-	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:396)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:361)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
-	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:396)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:361)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
-	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:396)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:361)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
-	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:396)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:361)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
-	at org.yaml.snakeyaml.composer.Composer.getNode(Composer.java:141)
-	at org.yaml.snakeyaml.constructor.BaseConstructor.getData(BaseConstructor.java:163)
-	at org.springframework.boot.env.OriginTrackedYamlLoader$OriginTrackingConstructor.getData(OriginTrackedYamlLoader.java:99)
-	at org.yaml.snakeyaml.Yaml$1.next(Yaml.java:530)
-	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:203)
-	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:169)
-	at org.springframework.boot.env.OriginTrackedYamlLoader.load(OriginTrackedYamlLoader.java:84)
-	at org.springframework.boot.env.YamlPropertySourceLoader.load(YamlPropertySourceLoader.java:50)
-	at org.springframework.boot.context.config.StandardConfigDataLoader.load(StandardConfigDataLoader.java:54)
-	at org.springframework.boot.context.config.StandardConfigDataLoader.load(StandardConfigDataLoader.java:36)
-	at org.springframework.boot.context.config.ConfigDataLoaders.load(ConfigDataLoaders.java:96)
-	at org.springframework.boot.context.config.ConfigDataImporter.load(ConfigDataImporter.java:132)
-	at org.springframework.boot.context.config.ConfigDataImporter.resolveAndLoad(ConfigDataImporter.java:87)
-	at org.springframework.boot.context.config.ConfigDataEnvironmentContributors.withProcessedImports(ConfigDataEnvironmentContributors.java:129)
-	at org.springframework.boot.context.config.ConfigDataEnvironment.processInitial(ConfigDataEnvironment.java:251)
-	at org.springframework.boot.context.config.ConfigDataEnvironment.processAndApply(ConfigDataEnvironment.java:238)
-	at org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.postProcessEnvironment(ConfigDataEnvironmentPostProcessor.java:96)
-	at org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.postProcessEnvironment(ConfigDataEnvironmentPostProcessor.java:89)
-	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEnvironmentPreparedEvent(EnvironmentPostProcessorApplicationListener.java:134)
-	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEvent(EnvironmentPostProcessorApplicationListener.java:117)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
-	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
-	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
-	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
-	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
-	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:353)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-	at com.prog.EnotesApiServiceApplication.main(EnotesApiServiceApplication.java:14)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-2026-07-30 20:16:37.037 ERROR [restartedMain] o.s.boot.SpringApplication - Application run failed
-while scanning for the next token
-found character '\t(TAB)' that cannot start any token. (Do not use \t(TAB) for indentation)
- in 'reader', line 181, column 1:
-    	
-    ^
-
-	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchMoreTokens(ScannerImpl.java:460)
-	at org.yaml.snakeyaml.scanner.ScannerImpl.checkToken(ScannerImpl.java:239)
-	at org.yaml.snakeyaml.parser.ParserImpl$ParseBlockMappingKey.produce(ParserImpl.java:637)
-	at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:161)
-	at org.yaml.snakeyaml.comments.CommentEventsCollector$1.peek(CommentEventsCollector.java:57)
-	at org.yaml.snakeyaml.comments.CommentEventsCollector$1.peek(CommentEventsCollector.java:43)
-	at org.yaml.snakeyaml.comments.CommentEventsCollector.collectEvents(CommentEventsCollector.java:136)
-	at org.yaml.snakeyaml.comments.CommentEventsCollector.collectEvents(CommentEventsCollector.java:116)
-	at org.yaml.snakeyaml.composer.Composer.composeScalarNode(Composer.java:249)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:214)
-	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:396)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:361)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
-	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:396)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:361)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
-	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:396)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:361)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
-	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:396)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:361)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
-	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:396)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:361)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
-	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:396)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:361)
-	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
-	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
-	at org.yaml.snakeyaml.composer.Composer.getNode(Composer.java:141)
-	at org.yaml.snakeyaml.constructor.BaseConstructor.getData(BaseConstructor.java:163)
-	at org.springframework.boot.env.OriginTrackedYamlLoader$OriginTrackingConstructor.getData(OriginTrackedYamlLoader.java:99)
-	at org.yaml.snakeyaml.Yaml$1.next(Yaml.java:530)
-	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:203)
-	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:169)
-	at org.springframework.boot.env.OriginTrackedYamlLoader.load(OriginTrackedYamlLoader.java:84)
-	at org.springframework.boot.env.YamlPropertySourceLoader.load(YamlPropertySourceLoader.java:50)
-	at org.springframework.boot.context.config.StandardConfigDataLoader.load(StandardConfigDataLoader.java:54)
-	at org.springframework.boot.context.config.StandardConfigDataLoader.load(StandardConfigDataLoader.java:36)
-	at org.springframework.boot.context.config.ConfigDataLoaders.load(ConfigDataLoaders.java:96)
-	at org.springframework.boot.context.config.ConfigDataImporter.load(ConfigDataImporter.java:132)
-	at org.springframework.boot.context.config.ConfigDataImporter.resolveAndLoad(ConfigDataImporter.java:87)
-	at org.springframework.boot.context.config.ConfigDataEnvironmentContributors.withProcessedImports(ConfigDataEnvironmentContributors.java:129)
-	at org.springframework.boot.context.config.ConfigDataEnvironment.processInitial(ConfigDataEnvironment.java:251)
-	at org.springframework.boot.context.config.ConfigDataEnvironment.processAndApply(ConfigDataEnvironment.java:238)
-	at org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.postProcessEnvironment(ConfigDataEnvironmentPostProcessor.java:96)
-	at org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.postProcessEnvironment(ConfigDataEnvironmentPostProcessor.java:89)
-	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEnvironmentPreparedEvent(EnvironmentPostProcessorApplicationListener.java:134)
-	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEvent(EnvironmentPostProcessorApplicationListener.java:117)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
-	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
-	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
-	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
-	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
-	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:353)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-	at com.prog.EnotesApiServiceApplication.main(EnotesApiServiceApplication.java:14)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-2026-07-30 20:17:29.874 INFO  [restartedMain] c.prog.EnotesApiServiceApplication - Starting EnotesApiServiceApplication using Java 21.0.4 with PID 47244 (D:\java\spring\Enotes-api-Service\target\classes started by HP in D:\java\spring\Enotes-api-Service)
-2026-07-30 20:17:29.875 INFO  [restartedMain] c.prog.EnotesApiServiceApplication - The following 1 profile is active: "dev"
-2026-07-30 20:17:30.589 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-07-30 20:17:30.666 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 74 ms. Found 7 JPA repository interfaces.
-2026-07-30 20:17:30.941 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-07-30 20:17:30.944 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-07-30 20:17:30.944 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.55]
-2026-07-30 20:17:30.980 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-07-30 20:17:30.981 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1098 ms
-2026-07-30 20:17:31.054 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-07-30 20:17:31.058 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-07-30 20:17:31.074 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-07-30 20:17:31.076 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
-2026-07-30 20:17:31.093 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@79260143
-2026-07-30 20:17:31.094 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
-2026-07-30 20:17:31.095 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-07-30 20:17:31.095 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2026-07-30 20:17:31.096 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+2026-07-31 17:54:54.246 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-31 17:54:54.251 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-31 17:54:54.939 INFO  [main] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-07-31 17:54:54.939 WARN  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-31 17:54:55.088 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-31 17:54:56.713 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-31 17:54:58.018 INFO  [main] c.p.EnotesApiServiceApplicationTests - Started EnotesApiServiceApplicationTests in 11.808 seconds (process running for 13.5)
+2026-07-31 17:54:59.189 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-31 17:54:59.195 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-31 17:54:59.210 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-31 17:57:21.950 INFO  [main] c.p.EnotesApiServiceApplicationTests - Starting EnotesApiServiceApplicationTests using Java 21.0.4 with PID 47336 (started by HP in D:\java\spring\Enotes-api-Service)
+2026-07-31 17:57:21.953 INFO  [main] c.p.EnotesApiServiceApplicationTests - The following 1 profile is active: "dev"
+2026-07-31 17:57:23.552 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-31 17:57:23.665 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 101 ms. Found 7 JPA repository interfaces.
+2026-07-31 17:57:24.674 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-31 17:57:24.742 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-07-31 17:57:24.793 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-31 17:57:25.180 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-31 17:57:25.225 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-31 17:57:25.759 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@296bfddb
+2026-07-31 17:57:25.762 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-31 17:57:25.826 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-31 17:57:25.830 WARN  [main] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-07-31 17:57:25.853 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-07-30 20:17:31.321 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-07-30 20:17:31.322 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-07-30 20:17:31.500 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2026-07-30 20:17:31.501 WARN  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-07-30 20:17:31.780 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-07-30 20:17:32.347 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2026-07-30 20:17:32.381 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-07-30 20:17:32.388 INFO  [restartedMain] c.prog.EnotesApiServiceApplication - Started EnotesApiServiceApplication in 2.622 seconds (process running for 3779.485)
-2026-07-30 20:17:32.390 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2026-07-30 20:24:39.185 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2026-07-30 20:24:39.187 INFO  [Thread-7] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-07-30 20:24:39.192 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-07-30 20:24:39.194 INFO  [Thread-7] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-07-30 20:24:39.196 INFO  [Thread-7] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
-2026-07-30 20:24:39.199 INFO  [Thread-7] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-07-31 17:57:27.296 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-31 17:57:27.301 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-31 17:57:27.900 INFO  [main] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-07-31 17:57:27.900 WARN  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-31 17:57:28.039 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-31 17:57:29.625 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-31 17:57:30.800 INFO  [main] c.p.EnotesApiServiceApplicationTests - Started EnotesApiServiceApplicationTests in 9.62 seconds (process running for 10.99)
+2026-07-31 17:57:31.332 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-31 17:57:31.339 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-31 17:57:31.354 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-31 18:14:27.151 INFO  [main] c.p.EnotesApiServiceApplicationTests - Starting EnotesApiServiceApplicationTests using Java 21.0.4 with PID 29008 (started by HP in D:\java\spring\Enotes-api-Service)
+2026-07-31 18:14:27.153 INFO  [main] c.p.EnotesApiServiceApplicationTests - The following 1 profile is active: "dev"
+2026-07-31 18:14:29.158 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-31 18:14:29.416 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 233 ms. Found 7 JPA repository interfaces.
+2026-07-31 18:14:34.419 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-31 18:14:34.573 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-07-31 18:14:34.653 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-31 18:14:35.494 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-31 18:14:35.602 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-31 18:14:36.846 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@32f14274
+2026-07-31 18:14:36.852 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-31 18:14:37.099 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-31 18:14:37.102 WARN  [main] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-07-31 18:14:37.174 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-31 18:14:40.396 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-31 18:14:40.403 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-31 18:14:42.144 INFO  [main] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-07-31 18:14:42.145 WARN  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-31 18:14:42.423 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-31 18:14:46.099 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-31 18:14:48.719 INFO  [main] c.p.EnotesApiServiceApplicationTests - Started EnotesApiServiceApplicationTests in 22.271 seconds (process running for 23.528)
+2026-07-31 18:14:49.826 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-31 18:14:49.836 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-31 18:14:49.861 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-31 18:21:55.037 INFO  [main] c.p.EnotesApiServiceApplicationTests - Starting EnotesApiServiceApplicationTests using Java 21.0.4 with PID 32004 (started by HP in D:\java\spring\Enotes-api-Service)
+2026-07-31 18:21:55.038 INFO  [main] c.p.EnotesApiServiceApplicationTests - The following 1 profile is active: "dev"
+2026-07-31 18:21:56.123 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-31 18:21:56.234 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 102 ms. Found 7 JPA repository interfaces.
+2026-07-31 18:21:57.066 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-31 18:21:57.108 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-07-31 18:21:57.149 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-31 18:21:57.422 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-31 18:21:57.445 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-31 18:21:57.740 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1f8d42d1
+2026-07-31 18:21:57.741 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-31 18:21:57.776 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-31 18:21:57.778 WARN  [main] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-07-31 18:21:57.793 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-31 18:21:59.018 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-31 18:21:59.025 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-31 18:21:59.404 INFO  [main] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-07-31 18:21:59.404 WARN  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-31 18:21:59.505 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-31 18:22:00.513 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-31 18:22:01.460 INFO  [main] c.p.EnotesApiServiceApplicationTests - Started EnotesApiServiceApplicationTests in 6.997 seconds (process running for 8.061)
+2026-07-31 18:22:01.875 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-31 18:22:01.880 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-31 18:22:01.889 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-31 19:48:06.691 INFO  [main] c.p.EnotesApiServiceApplicationTests - Starting EnotesApiServiceApplicationTests using Java 21.0.4 with PID 22288 (started by HP in D:\java\spring\Enotes-api-Service)
+2026-07-31 19:48:06.693 INFO  [main] c.p.EnotesApiServiceApplicationTests - The following 1 profile is active: "dev"
+2026-07-31 19:48:08.042 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-31 19:48:08.189 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 135 ms. Found 7 JPA repository interfaces.
+2026-07-31 19:48:09.054 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-31 19:48:09.170 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-07-31 19:48:09.227 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-31 19:48:09.678 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-31 19:48:09.726 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-31 19:48:10.309 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5e9cb95
+2026-07-31 19:48:10.311 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-31 19:48:10.373 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-31 19:48:10.375 WARN  [main] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-07-31 19:48:10.405 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-31 19:48:11.937 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-31 19:48:11.941 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-31 19:48:12.458 INFO  [main] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-07-31 19:48:12.459 WARN  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-31 19:48:12.608 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-31 19:48:13.769 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-31 19:48:14.853 INFO  [main] c.p.EnotesApiServiceApplicationTests - Started EnotesApiServiceApplicationTests in 8.874 seconds (process running for 10.182)
+2026-07-31 19:48:15.730 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-31 19:48:15.732 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-31 19:48:15.744 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-31 19:56:25.567 INFO  [main] c.p.EnotesApiServiceApplicationTests - Starting EnotesApiServiceApplicationTests using Java 21.0.4 with PID 50220 (started by HP in D:\java\spring\Enotes-api-Service)
+2026-07-31 19:56:25.570 INFO  [main] c.p.EnotesApiServiceApplicationTests - The following 1 profile is active: "dev"
+2026-07-31 19:56:26.643 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-31 19:56:26.746 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 96 ms. Found 7 JPA repository interfaces.
+2026-07-31 19:56:27.457 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-31 19:56:27.529 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-07-31 19:56:27.569 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-31 19:56:27.875 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-31 19:56:27.909 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-31 19:56:28.340 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@70e54ec3
+2026-07-31 19:56:28.342 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-31 19:56:28.381 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-31 19:56:28.382 WARN  [main] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-07-31 19:56:28.402 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-31 19:56:29.380 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-31 19:56:29.382 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-31 19:56:29.806 INFO  [main] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-07-31 19:56:29.807 WARN  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-31 19:56:29.930 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-31 19:56:30.914 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-31 19:56:31.754 INFO  [main] c.p.EnotesApiServiceApplicationTests - Started EnotesApiServiceApplicationTests in 6.638 seconds (process running for 7.764)
+2026-07-31 19:56:32.283 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-31 19:56:32.288 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-31 19:56:32.299 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -23,8 +23,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class JwtServiceImpl implements JwtService{
-	
+public class JwtServiceImpl implements JwtService {
+
 	private String secretKey = "";
 
 	public JwtServiceImpl() {
@@ -33,10 +33,11 @@ public class JwtServiceImpl implements JwtService{
 			SecretKey sk = keyGen.generateKey();
 			secretKey = Base64.getEncoder().encodeToString(sk.getEncoded());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Failed to generate JWT secret key", e);
+			throw new IllegalStateException("JWT initialization failed", e);
 		}
 	}
-	
+
 	@Override
 	public String generateToken(User user) {
 		log.info("JwtServiceImpl : generateToken() : Generating JWT token for user={}", user.getEmail());
@@ -44,17 +45,13 @@ public class JwtServiceImpl implements JwtService{
 		claims.put("id", user.getId());
 		claims.put("role", user.getRoles());
 		claims.put("status", user.getStatus().getIsActive());
-		String token = Jwts.builder().claims().add(claims)
-				.subject(user.getEmail())
+		String token = Jwts.builder().claims().add(claims).subject(user.getEmail())
 				.issuedAt(new Date(System.currentTimeMillis()))
-				.expiration(new Date(System.currentTimeMillis() +  50*60*1000))
-				.and()
-				.signWith(getKey())
-				.compact();
+				.expiration(new Date(System.currentTimeMillis() + 50 * 60 * 1000)).and().signWith(getKey()).compact();
 		log.info("JwtServiceImpl : generateToken() : JWT token generated successfully for user={}", user.getEmail());
 		return token;
 	}
-	
+
 	private Key getKey() {
 		byte[] keyBytes = Decoders.BASE64.decode(secretKey);
 		return Keys.hmacShaKeyFor(keyBytes);
@@ -65,20 +62,15 @@ public class JwtServiceImpl implements JwtService{
 		Claims claims = extractAllClaims(token);
 		return claims.getSubject();
 	}
-	
+
 	public String role(String token) {
 		Claims claims = extractAllClaims(token);
-		String role = (String)claims.get("role");
+		String role = (String) claims.get("role");
 		return role;
 	}
 
 	private Claims extractAllClaims(String token) {
-		Claims claims = Jwts.parser()
-				.verifyWith(decryKey(secretKey))
-				.build()
-				.parseSignedClaims(token)
-				.getPayload();
-		return claims;
+		return Jwts.parser().verifyWith(decryKey(secretKey)).build().parseSignedClaims(token).getPayload();
 	}
 
 	private SecretKey decryKey(String secretKey) {
@@ -89,9 +81,9 @@ public class JwtServiceImpl implements JwtService{
 	@Override
 	public Boolean validateToken(String token, UserDetails userDetails) {
 		log.info("JwtServiceImpl : validateToken() : Validating JWT token for user={}", userDetails.getUsername());
-		String username =  extractUsername(token);
+		String username = extractUsername(token);
 		Boolean isExpired = isTokenExpired(token);
-		if(username.equalsIgnoreCase(userDetails.getUsername()) && !isExpired) {
+		if (username.equalsIgnoreCase(userDetails.getUsername()) && !isExpired) {
 			log.info("JwtServiceImpl : validateToken() : JWT token validated successfully");
 			return true;
 		}
@@ -104,8 +96,5 @@ public class JwtServiceImpl implements JwtService{
 		Date expireDate = claims.getExpiration();
 		return expireDate.before(new Date());
 	}
-
-	
-
 
 }

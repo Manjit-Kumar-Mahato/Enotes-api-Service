@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -18,20 +17,19 @@ import com.prog.repository.CategoryRepository;
 import com.prog.service.CategoryService;
 import com.prog.util.Validation;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class CategoryServiceImpl implements CategoryService {
 
-	@Autowired
-	private CategoryRepository categoryRepo;
-
-	@Autowired
-	private ModelMapper mapper;
-
-	@Autowired
-	private Validation validation;
+	private final CategoryRepository categoryRepo;
+	
+	private final ModelMapper mapper;
+	
+	private final Validation validation;
 
 	@Override
 	public Boolean saveCategory(CategoryDto categoryDto) {

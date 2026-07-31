@@ -3,7 +3,6 @@ package com.prog.service.impl;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -16,20 +15,19 @@ import com.prog.repository.TodoRepository;
 import com.prog.service.TodoService;
 import com.prog.util.Validation;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class TodoServiceImpl implements TodoService {
-
-	@Autowired
-	private TodoRepository todoRepo;
-
-	@Autowired
-	private ModelMapper mapper;
-
-	@Autowired
-	private Validation validation;
+	
+	private final TodoRepository todoRepo;
+	
+	private final ModelMapper mapper;
+	
+	private final Validation validation;
 
 	@Override
 	public Boolean saveTodo(TodoDto todoDto) throws Exception {

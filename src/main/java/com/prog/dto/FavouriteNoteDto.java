@@ -1,7 +1,5 @@
 package com.prog.dto;
 
-import com.prog.entity.Notes;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
