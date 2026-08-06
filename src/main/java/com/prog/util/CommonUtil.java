@@ -1,14 +1,11 @@
 package com.prog.util;
 
 import org.apache.commons.io.FilenameUtils;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.prog.config.security.CustomUserDetails;
-import com.prog.dto.UserResponse;
 import com.prog.entity.User;
 import com.prog.handler.GenericResponse;
 

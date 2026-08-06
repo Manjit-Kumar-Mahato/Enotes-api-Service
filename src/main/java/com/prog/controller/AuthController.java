@@ -1,13 +1,10 @@
 package com.prog.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
 
 import com.prog.dto.LoginRequest;
 import com.prog.dto.LoginResponse;
@@ -21,10 +18,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 public class AuthController implements AuthEndpoint{
 
-    @Autowired
-    private AuthService authService;
+    private final AuthService authService;
 
     @Override
     public ResponseEntity<?> registerUser(UserRequest userDto,HttpServletRequest request) throws Exception {

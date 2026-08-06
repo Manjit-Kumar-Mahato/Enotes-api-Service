@@ -1,6 +1,5 @@
 package com.prog.config.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,17 +14,17 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
 
-	@Autowired
-	private UserDetailsService userDetailsService;
+	private final UserDetailsService userDetailsService;
 	
-	@Autowired
-	private JwtFilter jwtFilter;
+	private final JwtFilter jwtFilter;
 
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
@@ -50,7 +49,7 @@ public class SecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(req -> req
 				.requestMatchers("/api/v1/home/**", "/api/v1/auth/**", "/swagger-ui/**",
-						"/v3/api-docs/**", "/enotes-doc/**", "/enotes-api-doc/**").permitAll()
+						"/v3/api-docs/**", "/enotes-doc/**", "/enotes-api-doc/**","/actuator/**").permitAll()
 				.anyRequest().authenticated())
 				.httpBasic(Customizer.withDefaults())
 				.sessionManagement(session->

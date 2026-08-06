@@ -5,19 +5,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
+import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 import org.apache.commons.io.FilenameUtils;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -33,7 +29,6 @@ import com.prog.dto.NotesDto;
 import com.prog.dto.NotesDto.CategoryDto;
 import com.prog.dto.NotesDto.FilesDto;
 import com.prog.dto.NotesResponse;
-import com.prog.entity.Category;
 import com.prog.entity.FavouriteNote;
 import com.prog.entity.FileDetails;
 import com.prog.entity.Notes;
@@ -45,31 +40,30 @@ import com.prog.repository.NotesRepository;
 import com.prog.service.NotesService;
 import com.prog.util.CommonUtil;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class NotesServiceImpl implements NotesService {
 
-	@Autowired
-	private NotesRepository notesRepo;
+	private final NotesRepository notesRepo;
 
-	@Autowired
-	private ModelMapper mapper;
+	private final ModelMapper mapper;
 
-	@Autowired
-	private FavouriteNoteRepository favouriteNoteRepo;
+	private final FavouriteNoteRepository favouriteNoteRepo;
 
-	@Autowired
-	private CategoryRepository categoryRepo;
+	private final CategoryRepository categoryRepo;
+
+	private final Clock clock;
 
 	@Value("${file.upload.path}")
 	private String uploadpath;
 
-	@Autowired
-	private FileRepository fileRepo;
+	private final FileRepository fileRepo;
 
 	@Override
 	public Boolean saveNotes(String notes, MultipartFile file) throws Exception {
@@ -197,12 +191,12 @@ public class NotesServiceImpl implements NotesService {
 	@Override
 	public FileDetails getFileDetails(Integer id) throws Exception {
 		log.info("NotesServiceImpl : getFileDetails() : Fetching file details. FileId={}", id);
-		FileDetails fileDtls = fileRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("File is not available"));
-		return fileDtls;
+
+		return fileRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("File is not available"));
 	}
 
 	@Override
-	public NotesResponse getAllNotesByUser( Integer pageNo, Integer pageSize) {
+	public NotesResponse getAllNotesByUser(Integer pageNo, Integer pageSize) {
 		// 10 = 5,5 = 2 pages
 		Integer userId = CommonUtil.getLoggedInUser().getId();
 		log.info("NotesServiceImpl : getAllNotesByUser() : Fetching notes for userId={}", userId);
@@ -214,7 +208,7 @@ public class NotesServiceImpl implements NotesService {
 		NotesResponse notes = NotesResponse.builder().notes(notesDto).pageNo(pageNotes.getNumber())
 				.pageSize(pageNotes.getSize()).totalElements(pageNotes.getTotalElements())
 				.totalPages(pageNotes.getTotalPages()).isFirst(pageNotes.isFirst()).isLast(pageNotes.isLast()).build();
-		log.info("NotesServiceImpl : getAllNotesByUser() : {} notes fetched",pageNotes.getTotalElements());
+		log.info("NotesServiceImpl : getAllNotesByUser() : {} notes fetched", pageNotes.getTotalElements());
 		return notes;
 	}
 
@@ -224,7 +218,7 @@ public class NotesServiceImpl implements NotesService {
 		Notes notes = notesRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Notes id invalid ! Not Found"));
 		notes.setIsDeleted(true);
-		notes.setDeletedOn(LocalDateTime.now());
+		notes.setDeletedOn(LocalDateTime.now(clock));
 		notesRepo.save(notes);
 		log.info("NotesServiceImpl : softDeleteNotes() : Note moved to recycle bin. NoteId={}", id);
 	}
@@ -274,7 +268,7 @@ public class NotesServiceImpl implements NotesService {
 	@Override
 	public void favoriteNotes(Integer noteId) throws Exception {
 		log.info("NotesServiceImpl : emptyRecycleBin() : Recycle bin emptied successfully");
-		int userId = 2;
+		Integer userId = CommonUtil.getLoggedInUser().getId();
 		Notes notes = notesRepo.findById(noteId)
 				.orElseThrow(() -> new ResourceNotFoundException("Noes not Found & Id invalid"));
 		FavouriteNote favouriteNote = FavouriteNote.builder().note(notes).userId(userId).build();
@@ -293,9 +287,9 @@ public class NotesServiceImpl implements NotesService {
 
 	@Override
 	public List<FavouriteNoteDto> getUserFavoriteNotes() throws Exception {
-		int UserId = 2;
+		Integer userId = CommonUtil.getLoggedInUser().getId();
 		log.info("NotesServiceImpl : getUserFavoriteNotes() : Fetching favourite notes");
-		List<FavouriteNote> favouriteNotes = favouriteNoteRepo.findByUserId(UserId);
+		List<FavouriteNote> favouriteNotes = favouriteNoteRepo.findByUserId(userId);
 		return favouriteNotes.stream().map(fn -> mapper.map(fn, FavouriteNoteDto.class)).toList();
 	}
 
@@ -325,8 +319,7 @@ public class NotesServiceImpl implements NotesService {
 		NotesResponse notes = NotesResponse.builder().notes(notesDto).pageNo(pageNotes.getNumber())
 				.pageSize(pageNotes.getSize()).totalElements(pageNotes.getTotalElements())
 				.totalPages(pageNotes.getTotalPages()).isFirst(pageNotes.isFirst()).isLast(pageNotes.isLast()).build();
-		log.info("NotesServiceImpl : getNotesByUserSearch() : {} notes found",
-		        pageNotes.getTotalElements());
+		log.info("NotesServiceImpl : getNotesByUserSearch() : {} notes found", pageNotes.getTotalElements());
 		return notes;
 	}
 

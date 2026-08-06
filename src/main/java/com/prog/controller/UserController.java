@@ -1,13 +1,8 @@
 package com.prog.controller;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prog.dto.PasswordChngRequest;
@@ -17,17 +12,17 @@ import com.prog.entity.User;
 import com.prog.service.UserService;
 import com.prog.util.CommonUtil;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 public class UserController implements UserEndpoint{
 
-	@Autowired
-	private ModelMapper mapper;
+	private final ModelMapper mapper;
 
-	@Autowired
-	private UserService userService;
+	private final UserService userService;
 
 	@Override
 	public ResponseEntity<?> getProfile() {
