@@ -1,0 +1,17 @@
+=========================================================
+Feature : Cache Manager
+=========================================================
+
+Available Caches
+
+• allCategory
+• categoryById
+• activeCategory
+
+---------------------------------------------------------
+
+GET /api/v1/cache/
+
+Cache Name = allCategory
+Cache Name = categoryById
+Cache Name = activeCategory

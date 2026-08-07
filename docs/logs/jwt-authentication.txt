@@ -1,0 +1,20 @@
+=========================================================
+Feature : JWT Authentication
+=========================================================
+
+Description:
+JWT token validation before processing secured API requests.
+
+---------------------------------------------------------
+
+Processing request : /api/v1/category/
+
+Extract Username
+JWT token received
+
+Validate JWT Token
+JWT token validated successfully
+
+User authenticated successfully
+
+Request forwarded to Controller

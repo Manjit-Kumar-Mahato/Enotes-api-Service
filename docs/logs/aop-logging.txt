@@ -1,0 +1,28 @@
+=========================================================
+Feature : Spring AOP Logging
+=========================================================
+
+Description:
+Centralized logging using Spring AOP for Controller and Service methods.
+
+---------------------------------------------------------
+
+Calling :: CategoryController :: getAllCategory()
+Calling :: CategoryServiceImpl :: getAllCategory()
+
+CategoryServiceImpl : Fetching all categories
+CategoryServiceImpl : 11 categories fetched successfully
+
+Execution End :: CategoryServiceImpl :: getAllCategory() :: 12 ms
+Execution End :: CategoryController :: getAllCategory() :: 13 ms
+
+---------------------------------------------------------
+
+Calling :: CategoryController :: deleteCategoryById()
+
+Calling :: CategoryServiceImpl :: deleteCategory()
+
+Category deleted successfully. Id=12
+
+Execution End :: CategoryServiceImpl :: deleteCategory() :: 113 ms
+Execution End :: CategoryController :: deleteCategoryById() :: 114 ms

@@ -1,0 +1,27 @@
+=========================================================
+Feature : Spring Cache
+=========================================================
+
+Cache Name : allCategory
+Cache Name : categoryById
+Cache Name : activeCategory
+
+---------------------------------------------------------
+
+Request : GET /api/v1/category
+
+Cache Miss
+↓
+Fetch data from Database
+↓
+Store data in Cache
+↓
+Return Response
+
+---------------------------------------------------------
+
+Next Request
+
+Cache Hit
+↓
+Return data directly from Cache
