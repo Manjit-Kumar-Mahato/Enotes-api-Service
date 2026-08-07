@@ -1,0 +1,101 @@
+2026-08-07 21:44:12.564 INFO  [http-nio-8080-exec-2] c.p.s.impl.CacheManagerServiceImpl - Cache Name=org.springframework.cache.concurrent.ConcurrentMapCache@37baff77
+2026-08-07 21:44:12.564 INFO  [http-nio-8080-exec-2] c.p.s.impl.CacheManagerServiceImpl - Cache Name=org.springframework.cache.concurrent.ConcurrentMapCache@33856d58
+2026-08-07 21:44:12.564 INFO  [http-nio-8080-exec-2] c.p.s.impl.CacheManagerServiceImpl - Cache Name=org.springframework.cache.concurrent.ConcurrentMapCache@7687f54c
+2026-08-07 21:44:12.564 INFO  [http-nio-8080-exec-2] com.prog.aspect.LoggingAspect - Exceution End :: CacheManagerServiceImpl :: getCache() ::0 ms
+2026-08-07 21:44:12.564 INFO  [http-nio-8080-exec-2] com.prog.aspect.LoggingAspect - Exceution End :: CacheController :: getAllCache() ::1 ms
+2026-08-07 21:44:20.136 INFO  [http-nio-8080-exec-1] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/cache/activeCategory
+2026-08-07 21:44:20.138 INFO  [http-nio-8080-exec-1] com.prog.aspect.LoggingAspect - Calling :: CacheController :: getCache()
+2026-08-07 21:44:20.138 INFO  [http-nio-8080-exec-1] com.prog.aspect.LoggingAspect - Calling :: CacheManagerServiceImpl :: getCacheName()
+2026-08-07 21:44:20.138 INFO  [http-nio-8080-exec-1] c.p.s.impl.CacheManagerServiceImpl - Cache Name= org.springframework.cache.concurrent.ConcurrentMapCache@7687f54c
+2026-08-07 21:44:20.138 INFO  [http-nio-8080-exec-1] com.prog.aspect.LoggingAspect - Exceution End :: CacheManagerServiceImpl :: getCacheName() ::0 ms
+2026-08-07 21:44:20.138 INFO  [http-nio-8080-exec-1] com.prog.aspect.LoggingAspect - Exceution End :: CacheController :: getCache() ::0 ms
+2026-08-07 21:44:37.627 INFO  [http-nio-8080-exec-3] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/category/12
+2026-08-07 21:44:37.627 INFO  [http-nio-8080-exec-3] com.prog.aspect.LoggingAspect - Calling :: JwtServiceImpl :: extractUsername()
+2026-08-07 21:44:37.628 INFO  [http-nio-8080-exec-3] com.prog.aspect.LoggingAspect - Exceution End :: JwtServiceImpl :: extractUsername() ::1 ms
+2026-08-07 21:44:37.629 INFO  [http-nio-8080-exec-3] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : JWT token received for user=msugrp@gmail.com
+2026-08-07 21:44:37.644 INFO  [http-nio-8080-exec-3] com.prog.aspect.LoggingAspect - Calling :: JwtServiceImpl :: validateToken()
+2026-08-07 21:44:37.648 INFO  [http-nio-8080-exec-3] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : JWT token validated successfully
+2026-08-07 21:44:37.648 INFO  [http-nio-8080-exec-3] com.prog.aspect.LoggingAspect - Exceution End :: JwtServiceImpl :: validateToken() ::4 ms
+2026-08-07 21:44:37.648 INFO  [http-nio-8080-exec-3] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : User authenticated successfully. Username=msugrp@gmail.com
+2026-08-07 21:44:37.654 INFO  [http-nio-8080-exec-3] com.prog.aspect.LoggingAspect - Calling :: CategoryController :: deleteCategoryById()
+2026-08-07 21:44:37.654 INFO  [http-nio-8080-exec-3] c.prog.controller.CategoryController - CategoryController : deleteCategoryById() : Delete category request. Id=12
+2026-08-07 21:44:37.655 INFO  [http-nio-8080-exec-3] com.prog.aspect.LoggingAspect - Calling :: CategoryServiceImpl :: deleteCategory()
+2026-08-07 21:44:37.655 INFO  [http-nio-8080-exec-3] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : deleteCategory() : Delete category request. Id=12
+2026-08-07 21:44:37.767 INFO  [http-nio-8080-exec-3] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : deleteCategory() : Category deleted successfully. Id=12
+2026-08-07 21:44:37.768 INFO  [http-nio-8080-exec-3] com.prog.aspect.LoggingAspect - Exceution End :: CategoryServiceImpl :: deleteCategory() ::113 ms
+2026-08-07 21:44:37.768 INFO  [http-nio-8080-exec-3] c.prog.controller.CategoryController - CategoryController : deleteCategoryById() : Category deleted successfully. Id=12
+2026-08-07 21:44:37.768 INFO  [http-nio-8080-exec-3] com.prog.aspect.LoggingAspect - Exceution End :: CategoryController :: deleteCategoryById() ::114 ms
+2026-08-07 21:44:43.733 INFO  [http-nio-8080-exec-4] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/category/
+2026-08-07 21:44:43.733 INFO  [http-nio-8080-exec-4] com.prog.aspect.LoggingAspect - Calling :: JwtServiceImpl :: extractUsername()
+2026-08-07 21:44:43.735 INFO  [http-nio-8080-exec-4] com.prog.aspect.LoggingAspect - Exceution End :: JwtServiceImpl :: extractUsername() ::1 ms
+2026-08-07 21:44:43.735 INFO  [http-nio-8080-exec-4] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : JWT token received for user=msugrp@gmail.com
+2026-08-07 21:44:43.747 INFO  [http-nio-8080-exec-4] com.prog.aspect.LoggingAspect - Calling :: JwtServiceImpl :: validateToken()
+2026-08-07 21:44:43.748 INFO  [http-nio-8080-exec-4] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : JWT token validated successfully
+2026-08-07 21:44:43.748 INFO  [http-nio-8080-exec-4] com.prog.aspect.LoggingAspect - Exceution End :: JwtServiceImpl :: validateToken() ::1 ms
+2026-08-07 21:44:43.748 INFO  [http-nio-8080-exec-4] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : User authenticated successfully. Username=msugrp@gmail.com
+2026-08-07 21:44:43.753 ERROR [http-nio-8080-exec-4] c.p.exception.GlobalExceptionHandler - GlobalExceptionHandler : handleException() : Request method 'DELETE' is not supported
+2026-08-07 21:44:43.755 WARN  [http-nio-8080-exec-4] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' is not supported]
+2026-08-07 21:44:48.994 INFO  [http-nio-8080-exec-6] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/category/
+2026-08-07 21:44:48.994 INFO  [http-nio-8080-exec-6] com.prog.aspect.LoggingAspect - Calling :: JwtServiceImpl :: extractUsername()
+2026-08-07 21:44:48.995 INFO  [http-nio-8080-exec-6] com.prog.aspect.LoggingAspect - Exceution End :: JwtServiceImpl :: extractUsername() ::1 ms
+2026-08-07 21:44:48.995 INFO  [http-nio-8080-exec-6] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : JWT token received for user=msugrp@gmail.com
+2026-08-07 21:44:49.007 INFO  [http-nio-8080-exec-6] com.prog.aspect.LoggingAspect - Calling :: JwtServiceImpl :: validateToken()
+2026-08-07 21:44:49.009 INFO  [http-nio-8080-exec-6] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : JWT token validated successfully
+2026-08-07 21:44:49.009 INFO  [http-nio-8080-exec-6] com.prog.aspect.LoggingAspect - Exceution End :: JwtServiceImpl :: validateToken() ::2 ms
+2026-08-07 21:44:49.010 INFO  [http-nio-8080-exec-6] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : User authenticated successfully. Username=msugrp@gmail.com
+2026-08-07 21:44:49.012 INFO  [http-nio-8080-exec-6] com.prog.aspect.LoggingAspect - Calling :: CategoryController :: getAllCategory()
+2026-08-07 21:44:49.012 INFO  [http-nio-8080-exec-6] c.prog.controller.CategoryController - CategoryController : getAllCategory() : Fetch all categories request received
+2026-08-07 21:44:49.012 INFO  [http-nio-8080-exec-6] com.prog.aspect.LoggingAspect - Calling :: CategoryServiceImpl :: getAllCategory()
+2026-08-07 21:44:49.012 INFO  [http-nio-8080-exec-6] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : getAllCategory() : Fetching all categories
+2026-08-07 21:44:49.021 INFO  [http-nio-8080-exec-6] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : getAllCategory() : 11 categories fetched
+2026-08-07 21:44:49.025 INFO  [http-nio-8080-exec-6] com.prog.aspect.LoggingAspect - Exceution End :: CategoryServiceImpl :: getAllCategory() ::12 ms
+2026-08-07 21:44:49.025 INFO  [http-nio-8080-exec-6] c.prog.controller.CategoryController - CategoryController : getAllCategory() : 11 categories fetched successfully
+2026-08-07 21:44:49.025 INFO  [http-nio-8080-exec-6] com.prog.aspect.LoggingAspect - Exceution End :: CategoryController :: getAllCategory() ::13 ms
+2026-08-07 21:45:01.569 INFO  [http-nio-8080-exec-7] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/category/active
+2026-08-07 21:45:01.569 INFO  [http-nio-8080-exec-7] com.prog.aspect.LoggingAspect - Calling :: JwtServiceImpl :: extractUsername()
+2026-08-07 21:45:01.570 INFO  [http-nio-8080-exec-7] com.prog.aspect.LoggingAspect - Exceution End :: JwtServiceImpl :: extractUsername() ::0 ms
+2026-08-07 21:45:01.570 INFO  [http-nio-8080-exec-7] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : JWT token received for user=msugrp@gmail.com
+2026-08-07 21:45:01.579 INFO  [http-nio-8080-exec-7] com.prog.aspect.LoggingAspect - Calling :: JwtServiceImpl :: validateToken()
+2026-08-07 21:45:01.580 INFO  [http-nio-8080-exec-7] c.prog.service.impl.JwtServiceImpl - JwtServiceImpl : validateToken() : JWT token validated successfully
+2026-08-07 21:45:01.580 INFO  [http-nio-8080-exec-7] com.prog.aspect.LoggingAspect - Exceution End :: JwtServiceImpl :: validateToken() ::1 ms
+2026-08-07 21:45:01.581 INFO  [http-nio-8080-exec-7] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : User authenticated successfully. Username=msugrp@gmail.com
+2026-08-07 21:45:01.582 INFO  [http-nio-8080-exec-7] com.prog.aspect.LoggingAspect - Calling :: CategoryController :: getActiveCategory()
+2026-08-07 21:45:01.582 INFO  [http-nio-8080-exec-7] c.prog.controller.CategoryController - CategoryController : getActiveCategory() : Fetch active categories request received
+2026-08-07 21:45:01.582 INFO  [http-nio-8080-exec-7] com.prog.aspect.LoggingAspect - Calling :: CategoryServiceImpl :: getActiveCategory()
+2026-08-07 21:45:01.582 INFO  [http-nio-8080-exec-7] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : getActiveCategory() : Fetching active categories
+2026-08-07 21:45:01.587 INFO  [http-nio-8080-exec-7] c.p.service.impl.CategoryServiceImpl - CategoryServiceImpl : getActiveCategory() : 10 active categories fetched
+2026-08-07 21:45:01.588 INFO  [http-nio-8080-exec-7] com.prog.aspect.LoggingAspect - Exceution End :: CategoryServiceImpl :: getActiveCategory() ::6 ms
+2026-08-07 21:45:01.588 INFO  [http-nio-8080-exec-7] c.prog.controller.CategoryController - CategoryController : getActiveCategory() : 10 active categories fetched successfully
+2026-08-07 21:45:01.588 INFO  [http-nio-8080-exec-7] com.prog.aspect.LoggingAspect - Exceution End :: CategoryController :: getActiveCategory() ::6 ms
+2026-08-07 21:45:09.517 INFO  [http-nio-8080-exec-8] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/cache/activeCategory
+2026-08-07 21:45:09.519 INFO  [http-nio-8080-exec-8] com.prog.aspect.LoggingAspect - Calling :: CacheController :: getCache()
+2026-08-07 21:45:09.519 INFO  [http-nio-8080-exec-8] com.prog.aspect.LoggingAspect - Calling :: CacheManagerServiceImpl :: getCacheName()
+2026-08-07 21:45:09.519 INFO  [http-nio-8080-exec-8] c.p.s.impl.CacheManagerServiceImpl - Cache Name= org.springframework.cache.concurrent.ConcurrentMapCache@7687f54c
+2026-08-07 21:45:09.519 INFO  [http-nio-8080-exec-8] com.prog.aspect.LoggingAspect - Exceution End :: CacheManagerServiceImpl :: getCacheName() ::0 ms
+2026-08-07 21:45:09.519 INFO  [http-nio-8080-exec-8] com.prog.aspect.LoggingAspect - Exceution End :: CacheController :: getCache() ::0 ms
+2026-08-07 21:45:18.877 INFO  [http-nio-8080-exec-10] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/cache/
+2026-08-07 21:45:18.879 INFO  [http-nio-8080-exec-10] com.prog.aspect.LoggingAspect - Calling :: CacheController :: getAllCache()
+2026-08-07 21:45:18.879 INFO  [http-nio-8080-exec-10] com.prog.aspect.LoggingAspect - Calling :: CacheManagerServiceImpl :: getCache()
+2026-08-07 21:45:18.879 INFO  [http-nio-8080-exec-10] c.p.s.impl.CacheManagerServiceImpl - Cache Name=org.springframework.cache.concurrent.ConcurrentMapCache@37baff77
+2026-08-07 21:45:18.879 INFO  [http-nio-8080-exec-10] c.p.s.impl.CacheManagerServiceImpl - Cache Name=org.springframework.cache.concurrent.ConcurrentMapCache@33856d58
+2026-08-07 21:45:18.879 INFO  [http-nio-8080-exec-10] c.p.s.impl.CacheManagerServiceImpl - Cache Name=org.springframework.cache.concurrent.ConcurrentMapCache@7687f54c
+2026-08-07 21:45:18.880 INFO  [http-nio-8080-exec-10] com.prog.aspect.LoggingAspect - Exceution End :: CacheManagerServiceImpl :: getCache() ::1 ms
+2026-08-07 21:45:18.880 INFO  [http-nio-8080-exec-10] com.prog.aspect.LoggingAspect - Exceution End :: CacheController :: getAllCache() ::1 ms
+2026-08-07 21:45:26.376 INFO  [http-nio-8080-exec-9] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/cache/categoryById
+2026-08-07 21:45:26.378 INFO  [http-nio-8080-exec-9] com.prog.aspect.LoggingAspect - Calling :: CacheController :: getCache()
+2026-08-07 21:45:26.378 INFO  [http-nio-8080-exec-9] com.prog.aspect.LoggingAspect - Calling :: CacheManagerServiceImpl :: getCacheName()
+2026-08-07 21:45:26.378 INFO  [http-nio-8080-exec-9] c.p.s.impl.CacheManagerServiceImpl - Cache Name= org.springframework.cache.concurrent.ConcurrentMapCache@33856d58
+2026-08-07 21:45:26.378 INFO  [http-nio-8080-exec-9] com.prog.aspect.LoggingAspect - Exceution End :: CacheManagerServiceImpl :: getCacheName() ::0 ms
+2026-08-07 21:45:26.378 INFO  [http-nio-8080-exec-9] com.prog.aspect.LoggingAspect - Exceution End :: CacheController :: getCache() ::0 ms
+2026-08-07 21:45:41.941 INFO  [http-nio-8080-exec-2] com.prog.config.security.JwtFilter - JwtFilter : doFilterInternal() : Processing request /api/v1/cache/allcategory
+2026-08-07 21:45:41.943 INFO  [http-nio-8080-exec-2] com.prog.aspect.LoggingAspect - Calling :: CacheController :: getCache()
+2026-08-07 21:45:41.944 INFO  [http-nio-8080-exec-2] com.prog.aspect.LoggingAspect - Calling :: CacheManagerServiceImpl :: getCacheName()
+2026-08-07 21:45:41.944 INFO  [http-nio-8080-exec-2] c.p.s.impl.CacheManagerServiceImpl - Cache Name= org.springframework.cache.concurrent.ConcurrentMapCache@69863a7d
+2026-08-07 21:45:41.944 INFO  [http-nio-8080-exec-2] com.prog.aspect.LoggingAspect - Exceution End :: CacheManagerServiceImpl :: getCacheName() ::0 ms
+2026-08-07 21:45:41.944 INFO  [http-nio-8080-exec-2] com.prog.aspect.LoggingAspect - Exceution End :: CacheController :: getCache() ::0 ms
+2026-08-07 21:47:30.667 INFO  [RMI TCP Connection(12)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2026-08-07 21:47:30.671 INFO  [RMI TCP Connection(12)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-07 21:47:30.691 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-08-07 21:47:30.700 INFO  [RMI TCP Connection(12)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-07 21:47:30.705 INFO  [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-08-07 21:47:30.717 INFO  [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
