@@ -2,6 +2,9 @@ package com.prog.controller;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
@@ -37,6 +40,7 @@ public class CategoryController implements CategoryEndpoint{
 	}
 
 	@Override
+	@Cacheable("allCategory")
 	public ResponseEntity<?> getAllCategory() {
 		log.info("CategoryController : getAllCategory() : Fetch all categories request received");
 		List<CategoryDto> allCategory = categoryService.getAllCategory();
@@ -49,6 +53,7 @@ public class CategoryController implements CategoryEndpoint{
 	}
 
 	@Override
+	@Cacheable(value = "activeCategory")
 	public ResponseEntity<?> getActiveCategory() {
 		log.info("CategoryController : getActiveCategory() : Fetch active categories request received");
 		List<CategoryResponse> allCategory = categoryService.getActiveCategory();
@@ -61,6 +66,7 @@ public class CategoryController implements CategoryEndpoint{
 	}
 
 	@Override
+	@Cacheable(value = "categoryById", key = "#id")
 	public ResponseEntity<?> getCategortDetailsById(Integer id) throws Exception {
 		log.info("CategoryController : getCategoryDetailsById() : Fetch category request. Id={}", id);
 		CategoryDto categoryDto = categoryService.getCategoryById(id);
@@ -73,6 +79,11 @@ public class CategoryController implements CategoryEndpoint{
 	}
 
 	@Override
+	@Caching(evict = {
+		    @CacheEvict(value = "allCategory", allEntries = true),
+		    @CacheEvict(value = "activeCategory", allEntries = true),
+		    @CacheEvict(value = "categoryById", key = "#id")
+		})
 	public ResponseEntity<?> deleteCategoryById(Integer id) {
 		log.info("CategoryController : deleteCategoryById() : Delete category request. Id={}", id);
 		Boolean deleted = categoryService.deleteCategory(id);

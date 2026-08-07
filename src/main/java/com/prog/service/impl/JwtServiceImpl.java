@@ -40,7 +40,7 @@ public class JwtServiceImpl implements JwtService {
 
 	@Override
 	public String generateToken(User user) {
-		log.info("JwtServiceImpl : generateToken() : Generating JWT token for user={}", user.getEmail());
+		//log.info("JwtServiceImpl : generateToken() : Generating JWT token for user={}", user.getEmail());
 		Map<String, Object> claims = new HashMap<>();
 		claims.put("id", user.getId());
 		claims.put("role", user.getRoles());
@@ -48,7 +48,7 @@ public class JwtServiceImpl implements JwtService {
 		String token = Jwts.builder().claims().add(claims).subject(user.getEmail())
 				.issuedAt(new Date(System.currentTimeMillis()))
 				.expiration(new Date(System.currentTimeMillis() + 50 * 60 * 1000)).and().signWith(getKey()).compact();
-		log.info("JwtServiceImpl : generateToken() : JWT token generated successfully for user={}", user.getEmail());
+		log.info("JwtServiceImpl : generateToken() : JWT token generated successfully.");
 		return token;
 	}
 
@@ -80,7 +80,7 @@ public class JwtServiceImpl implements JwtService {
 
 	@Override
 	public Boolean validateToken(String token, UserDetails userDetails) {
-		log.info("JwtServiceImpl : validateToken() : Validating JWT token for user={}", userDetails.getUsername());
+		//log.info("JwtServiceImpl : validateToken() : Validating JWT token for user={}", userDetails.getUsername());
 		String username = extractUsername(token);
 		Boolean isExpired = isTokenExpired(token);
 		if (username.equalsIgnoreCase(userDetails.getUsername()) && !isExpired) {

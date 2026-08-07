@@ -95,7 +95,7 @@ public class CategoryServiceImpl implements CategoryService {
 
 		log.info("CategoryServiceImpl : getAllCategory() : Fetching all categories");
 
-		List<Category> categories = categoryRepo.findAll();
+		List<Category> categories = categoryRepo.findByIsDeletedFalse();
 
 		log.info("CategoryServiceImpl : getAllCategory() : {} categories fetched",
 				categories.size());
