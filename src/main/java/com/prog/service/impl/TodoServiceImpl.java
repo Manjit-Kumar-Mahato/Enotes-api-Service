@@ -13,6 +13,7 @@ import com.prog.enums.TodoStatus;
 import com.prog.exception.ResourceNotFoundException;
 import com.prog.repository.TodoRepository;
 import com.prog.service.TodoService;
+import com.prog.util.CommonUtil;
 import com.prog.util.Validation;
 
 import lombok.RequiredArgsConstructor;
@@ -22,11 +23,11 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @RequiredArgsConstructor
 public class TodoServiceImpl implements TodoService {
-	
+
 	private final TodoRepository todoRepo;
-	
+
 	private final ModelMapper mapper;
-	
+
 	private final Validation validation;
 
 	@Override
@@ -72,10 +73,7 @@ public class TodoServiceImpl implements TodoService {
 
 		for (TodoStatus st : TodoStatus.values()) {
 			if (st.getId().equals(todo.getStatusId())) {
-				StatusDto statusDto = StatusDto.builder()
-						.id(st.getId())
-						.name(st.getName())
-						.build();
+				StatusDto statusDto = StatusDto.builder().id(st.getId()).name(st.getName()).build();
 				todoDto.setStatus(statusDto);
 			}
 		}
@@ -84,7 +82,7 @@ public class TodoServiceImpl implements TodoService {
 	@Override
 	public List<TodoDto> getTodoByUser() {
 
-		Integer userId = 2;
+		Integer userId = CommonUtil.getLoggedInUser().getId();
 
 		log.info("TodoServiceImpl : getTodoByUser() : Fetching todos for userId={}", userId);
 
@@ -92,9 +90,7 @@ public class TodoServiceImpl implements TodoService {
 
 		log.info("TodoServiceImpl : getTodoByUser() : {} todos fetched", todos.size());
 
-		return todos.stream()
-				.map(td -> mapper.map(td, TodoDto.class))
-				.toList();
+		return todos.stream().map(td -> mapper.map(td, TodoDto.class)).toList();
 	}
 
 }
